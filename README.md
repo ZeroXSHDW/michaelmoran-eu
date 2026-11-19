@@ -81,7 +81,7 @@ git clone https://github.com/owner/michaelmoran-eu.git
 cd michaelmoran-eu
 
 # Install dependencies
-npm ci
+npm install
 
 # Start development server
 npm run dev
@@ -144,7 +144,7 @@ To edit:
 Defined in `_headers`:
 
 ```
-Content-Security-Policy     script-src 'self' 'unsafe-inline'
+Content-Security-Policy     script-src 'self' 'sha256-2ZnDbMnvSkxuev4hVcFtAERGoN0iXOtSfwayfp9Oicg=' 'strict-dynamic'
 X-Frame-Options            DENY
 Referrer-Policy            strict-origin-when-cross-origin
 Permissions-Policy         (lockdown of all browser features)

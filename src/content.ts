@@ -171,7 +171,7 @@ export const contact = {
   headline: '06 — Engagement',
   subheading: 'For new engagements and enquiries',
   form: {
-    action: 'https://formspree.io/f/{form_id}', // TODO(owner): Replace with actual form endpoint
+    action: 'mailto:contact@michaelmoran.eu', // TODO(owner): Replace with privacy-respecting form backend (e.g., Formspree, getform, or self-hosted)
     method: 'POST',
   },
   pgp: {
@@ -180,7 +180,7 @@ export const contact = {
     note: 'Messages can be encrypted with this key.',
   },
   linkedin: {
-    placeholder: 'TODO(owner): https://linkedin.com/in/username',
+    url: 'https://linkedin.com/in/placeholder', // TODO(owner): Replace with actual LinkedIn URL
   },
 };
 

@@ -30,3 +30,9 @@ yarn-error.log*
 *.tmp
 *.temp
 .TEMP
+
+# Astro
+.astro/
+
+# Package manager lock files (if using npm)
+package-lock.json

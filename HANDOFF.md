@@ -84,14 +84,14 @@ Create these records:
 ---
 
 ## LinkedIn URL Configuration
-
+ 
 **Location**: `src/content.ts`
-
+ 
 Find and replace:
-
+ 
 ```typescript
 linkedin: {
-  placeholder: 'https://linkedin.com/in/YOUR-USERNAME', // Replace this
+  url: 'https://linkedin.com/in/YOUR-USERNAME', // Replace this placeholder
 },
 ```
 
@@ -167,7 +167,7 @@ Upload your CV PDF file here. The file name must match exactly.
 # Clone and setup
 git clone git@github.com:USER/michaelmoran-eu.git
 cd michaelmoran-eu
-npm ci
+npm install
 
 # Local development
 npm run dev

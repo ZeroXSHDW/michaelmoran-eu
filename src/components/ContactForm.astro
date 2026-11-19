@@ -2,7 +2,11 @@
 const { action, method } = Astro.props;
 ---
 
-<form class="contact-form" action={action} method={method} netlify netlify-honeypot="bot-field" data-netlify="true">
+<form class="contact-form" data-action={action} method={method}>
+  <!-- TODO(owner): Configure a privacy-respecting form backend (Formspree, getform, or self-hosted)
+       The form data will be submitted to the action URL when the owner replaces the placeholder
+  -->
+  <input type="hidden" name="_subject" value="Website Contact Form Submission" />
   <div class="form-field">
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required required-min-length="2" maxlength="100" />
