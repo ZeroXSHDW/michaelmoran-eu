@@ -1,0 +1,38 @@
+---
+const { label, title } = Astro.props;
+---
+
+<div class="container">
+  <div class="section-header">
+    <span class="section-label accent">{label}</span>
+    {title && <h2 class="mt-1">{title}</h2>}
+  </div>
+</div>
+
+<style>
+.section-header {
+  text-align: center;
+}
+
+.section-label {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--font-size-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-meta);
+}
+
+.mt-1 {
+  margin-top: var(--space-1);
+}
+
+h2 {
+  font-family: 'Fraunces', serif;
+  font-size: var(--font-size-h2);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-text);
+}
+</style>

@@ -1,0 +1,9 @@
+# HTTP to HTTPS redirect
+http://michaelmoran.eu/*  https://michaelmoran.eu/:splat  301
+http://www.michaelmoran.eu/*  https://michaelmoran.eu/:splat  301
+
+# Canonical www to apex (if using apex as primary)
+# www.michaelmor.eu/*  https://michaelmoran.eu/:splat  301
+
+# /cv -> /cv.html (if using clean URLs)
+/cv  /cv  200

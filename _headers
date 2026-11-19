@@ -1,0 +1,28 @@
+# Security headers for Cloudflare Pages
+# Applied to all resources
+
+/*
+  # Content Security Policy - nonce will be injected by Astro
+  # This is a strict policy; adjust as needed for any inline scripts
+  Content-Security-Policy: script-src 'self' 'unsafe-inline' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; default-src 'self'
+
+  # Prevent clickjacking
+  X-Frame-Options: DENY
+
+  # Referrer policy
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Permissions policy - lockdown all sensitive browser features
+  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), compass-gyroscope=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()
+
+  # HTTPS only
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # XSS protection (legacy browsers)
+  X-XSS-Protection: 1; mode=block
+
+  # Content type sniffing prevention
+  X-Content-Type-Options: nosniff
+
+  # Trustworthy origin policy
+  Origin-Agent-Cluster: ?0

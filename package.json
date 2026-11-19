@@ -1,0 +1,26 @@
+{
+  "name": "michaelmoran-eu",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Michael Moran, Cyber Security Professional",
+  "author": "Michael Moran",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/fix-jsonld.js",
+    "preview": "astro preview",
+    "format": "prettier --write .",
+    "lint": "echo 'No eslint rules configured'",
+    "check": "tsc --noEmit",
+    "deploy": "wrangler pages deploy",
+    "validate": "astro check && npm run lint"
+  },
+  "dependencies": {
+    "astro": "^3.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "private": true
+}

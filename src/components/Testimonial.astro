@@ -1,0 +1,62 @@
+---
+const { quote, attribution } = Astro.props;
+---
+
+<blockquote class="testimonial reveal">
+  <svg class="testimonial-quote" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M10 10h4v6h-4v-6zm6 0h4v6h-4v-6z"/>
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+  </svg>
+  <p class="testimonial-quote-text">{quote}</p>
+  {attribution && (
+    <cite class="testimonial-attribution">
+      <span class="testimonial-author">{attribution}</span>
+    </cite>
+  )}
+</blockquote>
+
+<style>
+.testimonial {
+  position: relative;
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+  background-color: var(--color-white);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  list-style: none;
+  overflow: hidden;
+}
+
+.testimonial-quote {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  color: var(--color-border);
+  opacity: 0.1;
+  width: 32px;
+  height: 32px;
+}
+
+.testimonial-quote-text {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.testimonial-attribution {
+  display: block;
+  margin-top: var(--space-2);
+  text-align: right;
+  font-style: normal;
+}
+
+.testimonial-author {
+  display: block;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--color-meta);
+}
+</style>

@@ -1,0 +1,309 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CapabilityCard from '../components/CapabilityCard.astro';
+import EngagementCard from '../components/EngagementCard.astro';
+import CredentialItem from '../components/CredentialItem.astro';
+import Testimonial from '../components/Testimonial.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+
+import {
+  siteConfig,
+  hero,
+  profile,
+  capabilities,
+  engagements,
+  credentials,
+  testimonials,
+  contact,
+  footer,
+} from '../content';
+---
+
+<Layout title={siteConfig.title} description={siteConfig.description}>
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-name">{hero.name}</h1>
+        <p class="hero-title accent">{hero.title}</p>
+        <p class="hero-value-prop">{hero.valueProp}</p>
+        <p class="hero-credentials">{hero.credentials}</p>
+        <a href="#contact" class="hero-cta button-primary">Engage</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section id="profile">
+    <SectionHeader label={profile.headline} />
+    <div class="container">
+      <article class="profile-content">
+        {profile.paragraphs.map((paragraph, index) => (
+          <p class="reveal" style={{ animationDelay: `${index * 100}ms` }}>{paragraph}</p>
+        ))}
+      </article>
+    </div>
+  </section>
+
+  <!-- Capabilities Section -->
+  <section id="capabilities">
+    <SectionHeader label={capabilities.headline} />
+    <div class="container">
+      <ul class="capabilities-grid">
+        {capabilities.items.map((item) => (
+          <CapabilityCard
+            id={item.id}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Selected Engagements Section -->
+  <section id="engagements">
+    <SectionHeader label={engagements.headline} title={engagements.note} />
+    <div class="container">
+      <p class="engagements-note">{engagements.note}</p>
+      <ul class="engagements-grid">
+        {engagements.items.map((item) => (
+          <EngagementCard
+            id={item.id}
+            year={item.year}
+            sector={item.sector}
+            role={item.role}
+            outcome={item.outcome}
+          />
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Credentials Section -->
+  <section id="credentials">
+    <SectionHeader label={credentials.headline} />
+    <div class="container">
+      <ul class="credentials-list">
+        {credentials.items.map((cred) => (
+          <CredentialItem
+            name={cred.name}
+            issuer={cred.issuer}
+            year={cred.year}
+            verificationUrl={cred.verificationUrl}
+          />
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <SectionHeader label={testimonials.headline} />
+    <div class="container">
+      <blockquote class="testimonials-carousel">
+        {testimonials.items.map((testimonial) => (
+          <Testimonial
+            quote={testimonial.quote}
+            attribution={testimonial.attribution}
+          />
+        ))}
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <SectionHeader label={contact.headline} />
+    <div class="container">
+      <div class="contact-layout">
+        <ContactForm
+          action={contact.form.action}
+          method={contact.form.method}
+        />
+        <div class="contact-sidebar">
+          <h3 class="contact-heading">Contact</h3>
+          <p class="contact-method">
+            <a href={`mailto:contact@${siteConfig.url.replace('https://', '')}`} class="contact-link">Email</a>
+          </p>
+          <p class="contact-method">
+            <a href={contact.linkedin.placeholder} class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+          <div class="contact-pgp">
+            <h4 class="pgp-heading">PGP Fingerprint</h4>
+            <p class="pgp-placeholder">
+              <!-- TODO(owner): Add actual PGP fingerprint here -->
+              <span class="placeholder-text">[PGP FINGERPRINT PENDING]</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <Footer 
+    copyright={footer.copyright}
+    privacy={footer.privacy}
+    securityMark={footer.securityMark}
+  />
+</Layout>
+
+<style>
+.hero-section {
+  padding: var(--space-6) var(--space-2);
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.hero-name {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 var(--space-3) 0;
+  color: var(--color-text);
+}
+
+.hero-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 var(--space-3) 0;
+  opacity: 0.8;
+}
+
+.hero-value-prop {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 var(--space-3) 0;
+  color: var(--color-meta);
+}
+
+.hero-credentials {
+  font-size: 1rem;
+  color: var(--color-meta);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.button-primary {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 600;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.button-primary:hover,
+.button-primary:focus {
+  opacity: 0.9;
+}
+
+.profile-content .reveal:nth-child(1) { animation-delay: 0ms; }
+.profile-content .reveal:nth-child(2) { animation-delay: 100ms; }
+.profile-content .reveal:nth-child(3) { animation-delay: 200ms; }
+
+.engagements-note {
+  font-size: 0.95rem;
+  color: var(--color-meta);
+  margin: var(--space-3) 0 var(--space-4) 0;
+  text-align: center;
+}
+
+.engagements-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.credentials-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-layout {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.contact-heading {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.contact-method {
+  margin: var(--space-2) 0;
+}
+
+.contact-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: text-decoration var(--duration-fast) ease;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  text-decoration: underline;
+}
+
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact-pgp {
+  padding: var(--space-3);
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.pgp-heading {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0 0 var(--space-1) 0;
+  color: var(--color-text);
+}
+
+.placeholder-text {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 500;
+  color: var(--color-meta);
+  opacity: 0.7;
+}
+
+.testimonials-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: 0;
+  margin: var(--space-2) 0;
+}
+
+/* Mobile adjustments */
+@media (min-width: 48em) {
+  .contact-layout {
+    grid-template-columns: 1fr 320px;
+    align-items: flex-start;
+  }
+
+  .engagements-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+</style>

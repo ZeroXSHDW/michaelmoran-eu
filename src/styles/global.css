@@ -1,0 +1,326 @@
+/**
+ * Global styles for michaelmoran.eu
+ * Design tokens and utility classes
+ */
+
+/* CSS Custom Properties */
+:root {
+  /* Colours - Light mode */
+  --color-bg: #fafafa;
+  --color-text: #1a1a1a;
+  --color-accent: #0a1e4f;
+  --color-border: #e0e0e0;
+  --color-meta: #6b7280;
+  --color-white: #ffffff;
+
+  /* Colours - Dark mode */
+  --color-bg-dark: #0a0a0a;
+  --color-text-dark: #f5f5f5;
+  --color-accent-dark: #5a8fdf;
+  --color-border-dark: #2a2a2a;
+  --color-meta-dark: #a3a3a3;
+
+  /* Spacing scale */
+  --space-0: 0;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+
+  /* Typography scale (modular 1.25) */
+  --font-size-h1: 2.441rem;
+  --font-size-h2: 1.953rem;
+  --font-size-h3: 1.563rem;
+  --font-size-body: 1.125rem;
+  --font-size-label: 0.8rem;
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+}
+
+/* Dark mode colours */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--color-bg-dark);
+    --color-text: var(--color-text-dark);
+    --color-accent: var(--color-accent-dark);
+    --color-border: var(--color-border-dark);
+    --color-meta: var(--color-meta-dark);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom fonts - self-hosted */
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/fonts/Fraunces[wght].woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter[weight].woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 var(--space-3) 0;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+p {
+  margin: 0 0 var(--space-2) 0;
+  line-height: 1.7;
+}
+
+/* Section labels */
+.section-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--font-size-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-meta);
+}
+
+/* Accent colour usage */
+.accent {
+  color: var(--color-accent);
+}
+
+.accent-bg {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Links */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Hairline rules */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-5) 0;
+}
+
+/* Layout containers */
+.container {
+  width: min(90%, 1200px);
+  margin-inline: auto;
+  padding-inline: var(--space-2);
+}
+
+/* Grid for capabilities */
+.capabilities-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Section spacing */
+section {
+  padding: var(--space-6) var(--space-2);
+}
+
+section:last-of-type {
+  padding-bottom: var(--space-5);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-base) ease, transform var(--duration-base) ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 480px;
+}
+
+input,
+select,
+textarea {
+  padding: var(--space-2);
+  font-family: inherit;
+  font-size: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color var(--duration-fast) ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+button,
+input[type='submit'] {
+  font-family: inherit;
+  font-size: inherit;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) ease;
+}
+
+button:hover,
+button:focus,
+input[type='submit']:hover,
+input[type='submit']:focus {
+  opacity: 0.9;
+}
+
+/* Responsive typography */
+@media (min-width: 48em) {
+  html {
+    font-size: 106.25%;
+  }
+}
+
+@media (min-width: 62em) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
+/* Footer styles */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-label);
+  color: var(--color-meta);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Mobile adjustments */
+@media (max-width: 48em) {
+  section {
+    padding: var(--space-4) var(--space-1);
+  }
+
+  .container {
+    width: min(calc(100% - var(--space-2)), 1200px);
+    padding-inline: var(--space-1);
+  }
+
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: calc(2.2rem + 0.5vw);
+  }
+}
+
+/* Prevent text selection on certain elements */
+button,
+[role='button'] {
+  user-select: none;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}

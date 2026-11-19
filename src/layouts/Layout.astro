@@ -1,0 +1,98 @@
+---
+const { title, description } = Astro.props;
+const { 
+  siteConfig, 
+  ogImage 
+} = await import('../content');
+
+// Generate nonce for CSP
+const nonce = Astro.props.nonce || 'static-nonce';
+
+const fullTitle = title ? `${title}` : siteConfig.title;
+
+// Build JSON-LD schema as string for proper escaping
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": siteConfig.author,
+  "jobTitle": siteConfig.title,
+  "url": siteConfig.url,
+  "sameAs": [
+    siteConfig.linkedin || "https://linkedin.com/in/placeholder"
+  ],
+  "description": siteConfig.description,
+  "knowsAbout": [
+    "Mobile & Device Security",
+    "Wireless/RF Analysis",
+    "Network Forensics",
+    "Penetration Testing",
+    "Security Architecture",
+    "Incident Response"
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Title -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description || siteConfig.description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description || siteConfig.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteConfig.url} />
+    <meta property="og:image" content={`${siteConfig.url}/images/og-image.svg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Michael Moran — Cyber Security Professional" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description || siteConfig.description} />
+    <meta name="twitter:image" content={`${siteConfig.url}/images/og-image.svg`} />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+    
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json">
+      {JSON.stringify(jsonLd)}
+    </script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/global.css" />
+    
+    <!-- Preload fonts for performance -->
+    <link rel="preload" href="/fonts/Fraunces[wght].woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Inter[weight].woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <div id="page-content">
+      <slot />
+    </div>
+    
+    <!-- Scroll reveal script -->
+    <script is:inline>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+---
+const { action, method } = Astro.props;
+---
+
+<form class="contact-form" action={action} method={method} netlify netlify-honeypot="bot-field" data-netlify="true">
+  <div class="form-field">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required required-min-length="2" maxlength="100" />
+  </div>
+
+  <div class="form-field">
+    <label for="organisation">Organisation</label>
+    <input type="text" id="organisation" name="organisation" required maxlength="100" />
+  </div>
+
+  <div class="form-field">
+    <label for="engagement-type">Engagement Type</label>
+    <select id="engagement-type" name="engagement-type" required>
+      <option value="" disabled selected>Select...</option>
+      <option value="penetration-testing">Penetration Testing</option>
+      <option value="wireless-analysis">Wireless / RF Analysis</option>
+      <option value="mobile-security">Mobile Security</option>
+      <option value="network-forensics">Network Forensics</option>
+      <option value="architecture-review">Security Architecture Review</option>
+      <option value="incident-response">Incident Response</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-field">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required minlength="10" maxlength="2000"></textarea>
+  </div>
+
+  <!-- Honeypot field for spam protection -->
+  <div class="honeypot" hidden>
+    <label for="bot-field">Leave this field empty</label>
+    <input type="text" id="bot-field" name="bot-field" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <button type="submit" class="contact-submit">Submit</button>
+</form>
+
+<div class="contact-info">
+  <p class="contact-note">Messages are handled via encrypted email. PGP fingerprint available on request.</p>
+</div>
+
+<style>
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 480px;
+  margin: var(--space-4) 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-color: var(--color-accent);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-submit {
+  align-self: flex-start;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.contact-submit:hover,
+.contact-submit:focus {
+  opacity: 0.9;
+}
+
+.honeypot {
+  display: none;
+}
+
+.contact-info {
+  margin-top: var(--space-2);
+  text-align: center;
+}
+
+.contact-note {
+  font-size: 0.85rem;
+  color: var(--color-meta);
+}
+</style>
