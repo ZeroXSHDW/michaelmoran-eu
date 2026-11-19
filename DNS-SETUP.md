@@ -15,7 +15,52 @@ Before starting, ensure you have:
 
 ---
 
-## Method 1: CNAME + ALIAS (Recommended for now)
+## Current Status
+
+**Deployment Progress**: ⚠️ IN PROGRESS
+
+| Step | Status | Notes |
+|------|--------|-------|
+| GitHub repo created | ✅ Complete | https://github.com/ZeroXSHDW/michaelmoran-eu |
+| Secrets configured | ✅ Complete | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` set |
+| Cloudflare Pages project | ✅ Complete | `michaelmoran-eu` project created |
+| Custom domain added | ✅ Complete | `michaelmoran.eu` added (pending DNS) |
+| DNS configuration | ⏳ PENDING | Njalla DNS records to be created |
+| HTTPS verification | ⏳ PENDING | After DNS propagation |
+
+### Current Deployment
+
+Site is live at: https://df8d7c66.michaelmoran-eu.pages.dev
+
+### Next Steps for Owner
+
+1. **Log into Njalla control panel** → Domain → DNS Records
+2. **Create CNAME record**:
+   - Type: `CNAME`
+   - Name: `michaelmoran.eu` (or `@` for apex)
+   - Target: `michaelmoran-eu.pages.dev`
+   - TTL: `Auto`
+   
+3. **Create CNAME for www** (if different from apex):
+   - Type: `CNAME`
+   - Name: `www.michaelmoran.eu`
+   - Target: `michaelmoran-eu.pages.dev`
+   - TTL: `Auto`
+
+4. **Verify in Cloudflare Pages** Dashboard → Pages → Custom Domains
+   - Status should change from "pending" to "Active"
+
+5. **Wait 24-48 hours** for DNS propagation and SSL certificate issuance
+
+### Alternative: Use Cloudflare DNS
+
+If you prefer full Cloudflare DNS management:
+
+1. In Njalla → Domain → Nameservers → Custom
+2. Replace with Cloudflare nameservers:
+   - `luna.ns.cloudflare.com`
+   - `max.ns.cloudflare.com`
+3. Then configure DNS records in Cloudflare Dashboard → DNS
 
 ### Step 1: Create Cloudflare Pages Project
 
@@ -184,12 +229,11 @@ Setting: Forwarding URL - 301 - https://michaelmoran.eu/$1
 
 ## Verification Checklist
 
-- [ ] `www.michaelmor.eu` CNAME points to `michaelmoran-eu.pages.dev`
-- [ ] apex `michaelmoran.eu` resolves to Pages
-- [ ] HTTPS certificate is valid and issued by Cloudflare
-- [ ] HTTP redirects to HTTPS (test with curl)
-- [ ] No mixed content warnings
-- [ ] Site loads correctly with and without www
+- [x] `michaelmoran-eu.pages.dev` deployment created via wrangler
+- [x] GitHub secrets configured: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+- [x] Custom domain `michaelmoran.eu` added to Cloudflare Pages (status: **pending**)
+- [ ] Configure Njalla DNS records for CNAME/ALIAS
+- [ ] Verify HTTPS certificate in Cloudflare Pages dashboard
 
 ---
 

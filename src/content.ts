@@ -180,7 +180,9 @@ export const contact = {
     note: 'Messages can be encrypted with this key.',
   },
   linkedin: {
-    url: 'https://linkedin.com/in/placeholder', // TODO(owner): Replace with actual LinkedIn URL
+    // TODO(owner): Replace with actual LinkedIn URL
+    // Current placeholder - add your real LinkedIn URL here
+    url: 'https://linkedin.com/in/placeholder',
   },
 };
 
