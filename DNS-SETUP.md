@@ -2,20 +2,11 @@
 
 ## Overview
 
-This document provides step-by-step instructions for configuring DNS records at Njalla and Cloudflare Pages to serve the website at `michaelmoran.eu`.
+This document provides step-by-step instructions for configuring DNS records at Cloudflare to serve the website at `michaelmoran.eu`.
 
 ---
 
-## Prerequisites
-
-Before starting, ensure you have:
-1. Access to the Njalla control panel
-2. Cloudflare account with API token ( Pages: Edit scope)
-3. The wrangler project already created
-
----
-
-## Current Status
+## Current Status (as of Nov 19, 2026)
 
 **Deployment Progress**: ⚠️ IN PROGRESS
 
@@ -25,247 +16,148 @@ Before starting, ensure you have:
 | Secrets configured | ✅ Complete | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` set |
 | Cloudflare Pages project | ✅ Complete | `michaelmoran-eu` project created |
 | Custom domain added | ✅ Complete | `michaelmoran.eu` added (pending DNS) |
-| DNS configuration | ⏳ PENDING | Njalla DNS records to be created |
-| HTTPS verification | ⏳ PENDING | After DNS propagation |
+| Nameservers changed | ✅ Complete | Changed to Cloudflare (burt.ns.cloudflare.com, suzanne.ns.cloudflare.com) |
+| DNS records need update | ⏳ PENDING | Cloudflare DNS records need to point to Pages |
 
 ### Current Deployment
 
-Site is live at: https://df8d7c66.michaelmoran-eu.pages.dev
-
-### Next Steps for Owner
-
-1. **Log into Njalla control panel** → Domain → DNS Records
-2. **Create CNAME record**:
-   - Type: `CNAME`
-   - Name: `michaelmoran.eu` (or `@` for apex)
-   - Target: `michaelmoran-eu.pages.dev`
-   - TTL: `Auto`
-   
-3. **Create CNAME for www** (if different from apex):
-   - Type: `CNAME`
-   - Name: `www.michaelmoran.eu`
-   - Target: `michaelmoran-eu.pages.dev`
-   - TTL: `Auto`
-
-4. **Verify in Cloudflare Pages** Dashboard → Pages → Custom Domains
-   - Status should change from "pending" to "Active"
-
-5. **Wait 24-48 hours** for DNS propagation and SSL certificate issuance
-
-### Alternative: Use Cloudflare DNS
-
-If you prefer full Cloudflare DNS management:
-
-1. In Njalla → Domain → Nameservers → Custom
-2. Replace with Cloudflare nameservers:
-   - `luna.ns.cloudflare.com`
-   - `max.ns.cloudflare.com`
-3. Then configure DNS records in Cloudflare Dashboard → DNS
-
-### Step 1: Create Cloudflare Pages Project
-
-Owner must run this command locally or via GitHub Actions:
-
-```bash
-wrangler pages project create michaelmoran-eu --production-branch main
-```
-
-After creation, note the **Account ID** from the output - this goes in GitHub secrets as `CLOUDFLARE_ACCOUNT_ID`.
-
-### Step 2: Configure Njalla DNS Records
-
-Log into the **Njalla control panel** → **Domain** → **DNS Records**.
-
-#### Create CNAME for www:
-```
-Type: CNAME
-Name: www
-Target: michaelmoran-eu.pages.dev
-TTL: Auto
-```
-
-#### Create ALIAS for apex (michaelmoran.eu):
-Njalla supports ALIAS/ANAME-like records for apex domains.
-
-```
-Type: ALIAS (or ANAME if available)
-Name: @
-Target: michaelmoran-eu.pages.dev
-TTL: Auto
-```
-
-If ALIAS/ANAME is not available, use an A record pointing to Pages' IP addresses (less ideal):
-
-```
-Type: A
-Name: @
-Target: 162.159.82.167
-Target: 162.159.83.167
-TTL: Auto
-```
-
-Then in Cloudflare Pages:
-- Go to **Custom Domains**
-- Add `michaelmoran.eu` as a custom domain
-
-### Step 3: Add Custom Domain in Cloudflare Pages
-
-1. Go to **Cloudflare Dashboard** → **Pages** → `michaelmoran-eu`
-2. Click **Custom domains** → **Set up custom domain**
-3. Enter: `michaelmoran.eu`
-4. Select DNS provider: **Other** (or **Njalla** if available)
-5. Cloudflare will provide verification records if needed
-
-### Step 4: Verify HTTPS
-
-Cloudflare Pages automatically provisions SSL certificates. After DNS propagation:
-
-1. In Pages dashboard, under **Custom domains**
-2. Status should show "Active" with a green check
-3. Certificate status should show "Valid"
-
-### Step 5: Verify Setup
-
-Run these commands from your terminal:
-
-```bash
-# Verify A records
-dig +short michaelmoran.eu A
-dig +short www.michaelmoran.eu CNAME
-
-# Verify HTTPS
-openssl s_client -servername michaelmoran.eu -connect michaelmoran.eu:443 < /dev/null 2>/dev/null | openssl x509 -noout -subject -dates
-
-# Test HTTP redirect
-curl -I http://michaelmoran.eu 2>/dev/null | head -5
-```
-
-Expected output:
-- `dig` should show IP addresses or CNAME targets
-- `openssl` should show certificate issued to `michaelmoran.eu`
-- `curl -I` should return `301 Moved Permanently` with `Location: https://michaelmoran.eu/`
+Site is live at: https://michaelmoran-eu.pages.dev
 
 ---
 
-## Method 2: Full Cloudflare DNS Hosting (Long-term recommended)
+## CRITICAL: Update DNS Records NOW
 
-This method moves all DNS management to Cloudflare for optimal SSL certificate handling.
+Since nameservers are now using Cloudflare, you must update the DNS records in the **Cloudflare Dashboard**:
 
-### Step 1: Change Nameservers at Registrar
+**Log in to Cloudflare Dashboard** → **michaelmoran.eu** → **DNS** → **Records**
 
-1. In Njalla control panel → **Domain** → **Nameservers**
-2. Select **Custom nameservers**
-3. Enter Cloudflare nameservers:
-   - `luna.ns.cloudflare.com`
-   - `max.ns.cloudflare.com`
+### Option 1: A Records for Pages (Recommended if apex needed)
 
-### Step 2: Configure DNS in Cloudflare Dashboard
-
-1. Go to **Cloudflare Dashboard** → **DNS** → **Records**
-2. Add records:
+Delete existing A record(s) and add these two new A records:
 
 ```
 Type: A
 Name: @
-IPv4 address: 162.159.82.167
+Content: 162.159.82.167
 TTL: Auto
-Proxy status: DNS only
+Proxy status: DNS Only
 
 Type: A
 Name: @
-IPv4 address: 162.159.83.167
+Content: 162.159.83.167
 TTL: Auto
-Proxy status: DNS only
+Proxy status: DNS Only
+```
 
+### Option 2: CNAME for www + A record for apex
+
+For best compatibility:
+
+1. **Add/update A record for apex:**
+   ```
+   Type: A
+   Name: @
+   Content: 162.159.82.167
+   TTL: Auto
+   Proxy status: DNS Only
+   ```
+
+2. **Add CNAME for www:**
+   ```
+   Type: CNAME
+   Name: www
+   Content: michaelmoran-eu.pages.dev
+   TTL: Auto
+   Proxy status: DNS Only
+   ```
+
+### Option 3: Only www with CNAME (Simplest)
+
+If you don't need apex support, just add:
+
+```
 Type: CNAME
 Name: www
-Target: michaelmoran-eu.pages.dev
+Content: michaelmoran-eu.pages.dev
 TTL: Auto
-Proxy status: DNS only
+Proxy status: DNS Only
 ```
-
-### Step 3: Enable SSL/TLS
-
-1. Go to **SSL/TLS** → **Overview**
-2. Set to **Full (strict)**
-3. Go to **Edge Certificates**
-4. Enable **"Always Use HTTPS"**
-5. Enable **"Automatic HTTPS Rewrites"**
-
-### Step 4: Page Rules for HTTP→HTTPS Redirect
-
-Add a Page Rule:
-```
-URL Pattern: http://michaelmoran.eu/*
-Setting: Forwarding URL - 301 - https://michaelmoran.eu/$1
-```
-
-### DNS Propagation Timeline
-
-| Step | DNS TTL | Expected Time |
-|------|---------|---------------|
-| Nameserver change | Registrar varies | 0-24 hours |
-| A/CNAME records | Auto | 5-30 minutes |
-| SSL certificate | N/A | 24-48 hours after first request |
 
 ---
 
-## Troubleshooting
+## Step-by-Step for Cloudflare Dashboard
 
-### Issue: "Certificate Not Valid"
-- Wait up to 48 hours after DNS setup
-- Check that both `michaelmoran.eu` and `www.michaelmoran.eu` resolve correctly
-- Ensure no conflicting records exist
-
-### Issue: DNS propagation delay
-- Use `dig michaelmoran.eu ANY` to verify records
-- Check Cloudflare's DNS debugger tool
-
-### Issue: Mixed content warnings
-- Ensure all resources use relative paths (`/path` not `http://domain/path`)
-- All CSS/JS/images loaded from same origin
+1. Go to: https://dash.cloudflare.com
+2. Select your account
+3. Click on **michaelmoran.eu** domain
+4. Click **DNS** in the sidebar
+5. **Delete** any existing `michaelmoran.eu` A records
+6. **Add** new records as specified above
+7. Wait 2-5 minutes for DNS to update
 
 ---
 
 ## Verification Checklist
 
-- [x] `michaelmoran-eu.pages.dev` deployment created via wrangler
-- [x] GitHub secrets configured: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
-- [x] Custom domain `michaelmoran.eu` added to Cloudflare Pages (status: **pending verification**)
-- [x] Njalla DNS records configured with A records pointing to Cloudflare Pages IPs
-- [ ] Wait for domain verification to show "Active" in Cloudflare Pages dashboard
+After updating DNS records:
 
-### Current DNS Configuration (Completed by AI)
+- [ ] `michaelmoran.eu` A records point to 162.159.82.167 and 162.159.83.167
+- [ ] OR `www.michaelmoran.eu` CNAME points to `michaelmoran-eu.pages.dev`
+- [ ] Cloudflare Pages shows "Active" status for custom domain
+- [ ] SSL certificate shows as "Valid" in Cloudflare Pages dashboard
+- [ ] Site loads at https://michaelmoran.eu without errors
 
-**Njalla A Records Set:**
-```
-Type: A
-Name: @
-Targets: 172.66.44.204, 172.66.47.52
-TTL: Auto
-```
+---
 
-**Verification Status:**
-- DNS resolves correctly to Cloudflare IPs ✓
-- Waiting for Cloudflare Pages to complete domain verification
-- Site currently accessible at: https://michaelmoran-eu.pages.dev
+## Timeline
 
-### Next Steps
-
-1. **Wait 24-48 hours** for DNS propagation and Cloudflare verification
-2. **Check Cloudflare Pages** Dashboard → Pages → Custom Domains
-3. **Status should change** from "pending" to "Active" with green checkmark
-4. **Verify HTTPS** - certificate should show as "Valid"
-
-### Immediate Fallback
-
-The site is already fully functional at **https://michaelmoran-eu.pages.dev** while waiting for custom domain verification.
+| Step | Time Required |
+|------|---------------|
+| DNS record update in Cloudflare | 2-5 minutes |
+| DNS propagation (global) | 5-30 minutes |
+| SSL certificate provisioning | 10-30 minutes |
 
 ---
 
 ## Security Considerations
 
-1. **DNS Records**: Only allow A/CNAME records pointing to Cloudflare Pages
-2. **TTL**: Keep TTL at Auto for faster recovery from errors
-3. **Zone Transfer**: Ensure zone transfer is disabled at registrar
-4. **DNSSEC**: Enable DNSSEC in Cloudflare after migration
+1. **Proxy Status**: Keep as "DNS Only" to avoid Cloudflare's universal SSL conflicts with Pages
+2. **TTL**: Keep at "Auto" for faster recovery from errors
+3. **SSl**: Cloudflare Pages will automatically provision Google SSL certificates
+
+---
+
+## Troubleshooting
+
+### Domain still shows 409 Conflict
+- Wait 10-15 minutes after DNS update
+- Refresh Cloudflare Pages → Custom Domains page
+
+### SSL certificate not provisioning
+- Ensure DNS has propagated: `dig michaelmoran.eu A`
+- Check Cloudflare dashboard for certificate status
+- May take up to 48 hours in some cases
+
+### Mixed content warnings
+- All resources use relative paths (`/path` not `http://domain/path`)
+- All CSS/JS/images loaded from same origin
+
+---
+
+## Site Status Summary
+
+```
+GitHub:    https://github.com/ZeroXSHDW/michaelmoran-eu
+Live:      https://michaelmoran-eu.pages.dev
+Custom:    https://michaelmoran.eu (pending DNS update)
+```
+
+---
+
+## Next Steps After DNS Update
+
+1. Wait 5-10 minutes
+2. Check https://michaelmoran.eu loads correctly
+3. Verify SSL certificate in browser
+4. Update TODO markers in `src/content.ts` (LinkedIn URL, certifications, testimonials)
+5. Upload actual CV PDF to `public/cv/michael-moran-cv.pdf`
