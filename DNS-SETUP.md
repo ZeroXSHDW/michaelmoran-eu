@@ -2,22 +2,20 @@
 
 ## Overview
 
-This document provides step-by-step instructions for configuring DNS records at Cloudflare to serve the website at `michaelmoran.eu`.
+This guide provides step-by-step instructions for configuring DNS records at Cloudflare to serve the portfolio website at `michaelmoran.eu`.
 
 ---
 
-## Current Status (as of Nov 19, 2026)
-
-**Deployment Progress**: ⚠️ IN PROGRESS
+## Current Status (Nov 19, 2026)
 
 | Step | Status | Notes |
 |------|--------|-------|
 | GitHub repo created | ✅ Complete | https://github.com/ZeroXSHDW/michaelmoran-eu |
 | Secrets configured | ✅ Complete | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` set |
 | Cloudflare Pages project | ✅ Complete | `michaelmoran-eu` project created |
-| Custom domain added | ✅ Complete | `michaelmoran.eu` added (pending DNS) |
-| Nameservers changed | ✅ Complete | Changed to Cloudflare (burt.ns.cloudflare.com, suzanne.ns.cloudflare.com) |
-| DNS records need update | ⏳ PENDING | Cloudflare DNS records need to point to Pages |
+| Custom domain added | ✅ Complete | `michaelmoran.eu` added |
+| Nameservers changed | ✅ Complete | Now using Cloudflare (burt.ns.cloudflare.com, suzanne.ns.cloudflare.com) |
+| Site working | ⚠️ Broken | SSL_ERROR_NO_CYPHER_OVERLAP - need DNS fix |
 
 ### Current Deployment
 
@@ -25,166 +23,185 @@ Site is live at: https://michaelmoran-eu.pages.dev
 
 ---
 
-## 🔴 URGENT: Site Currently BROKEN
+## 🔴 URGENT: FIX REQUIRED - Site Currently BROKEN
 
-**Current Issue**: SSL_ERROR_NO_CYPHER_OVERLAP
+**Current Issue**: `SSL_ERROR_NO_CYPHER_OVERLAP`
 
 The site `https://michaelmoran.eu` is currently **inaccessible** and showing security errors in browsers.
 
 **Root Cause**: DNS records are **proxied** (orange cloud) but Cloudflare Pages hasn't issued an SSL certificate for the custom domain yet.
 
-**Immediate Fix Required**:
+---
 
-### Option A: Set DNS records to DNS Only (Gray Cloud)
+## 🚨 IMMEDIATE FIX (Choose One Option)
+
+### Option A: Set DNS records to DNS Only (Gray Cloud) ⚡ FASTEST
+
+**Recommended for immediate fix**
 
 1. Log into Cloudflare Dashboard
 2. Go to **michaelmoran.eu** → **DNS** → **Records**
-3. For each record (A/AAAA), click the **proxy toggle** to turn it OFF (gray cloud)
+3. For each record (A/AAAA), click the **proxy toggle** to turn it OFF (gray cloud icon)
    - This disables Cloudflare's reverse proxy
-   - Routes traffic directly to Pages IPs
+   - Routes traffic directly to Pages IPs (172.66.44.204, 172.66.47.52)
+4. Wait 2-5 minutes
+5. Verify: https://michaelmoran.eu should load
 
-### Option B: Wait for SSL certificate (may take hours)
+### Option B: Wait for SSL Certificate 🕐 SLOWER BUT MORE SECURE
 
-If you prefer proxied records:
-1. Keep records proxied
+**Keep records proxied, wait for certificate**
+
+1. Keep DNS records as **proxied** (orange cloud)
 2. Wait 2-24 hours for Google SSL certificate provisioning
 3. Check Cloudflare Pages → Custom Domains for "Active" status
+4. Verify status changes from "pending" to "Active"
 
 ---
 
-## CRITICAL: Update DNS Records NOW
+## ✅ DNS Records for Cloudflare Pages
 
-Since nameservers are now using Cloudflare, you must update the DNS records in the **Cloudflare Dashboard**:
+**Navigate to**: Cloudflare Dashboard → michaelmoran.eu → DNS → Records
 
-**Log in to Cloudflare Dashboard** → **michaelmoran.eu** → **DNS** → **Records**
+### Configure Records (DNS Only - Gray Cloud)
 
-### Option 1: A Records for Pages (Recommended if apex needed)
-
-Delete existing A record(s) and add these two new A records:
+**Delete existing records and add these:**
 
 ```
 Type: A
 Name: @
 Content: 162.159.82.167
 TTL: Auto
-Proxy status: DNS Only
+Proxy: DNS Only
 
 Type: A
 Name: @
 Content: 162.159.83.167
 TTL: Auto
-Proxy status: DNS Only
+Proxy: DNS Only
 ```
 
-### Option 2: CNAME for www + A record for apex
+⚠️ **IMPORTANT**: Click the orange cloud icon next to each record to toggle it to gray (DNS Only)
 
-For best compatibility:
-
-1. **Add/update A record for apex:**
-   ```
-   Type: A
-   Name: @
-   Content: 162.159.82.167
-   TTL: Auto
-   Proxy status: DNS Only
-   ```
-
-2. **Add CNAME for www:**
-   ```
-   Type: CNAME
-   Name: www
-   Content: michaelmoran-eu.pages.dev
-   TTL: Auto
-   Proxy status: DNS Only
-   ```
-
-### Option 3: Only www with CNAME (Simplest)
-
-If you don't need apex support, just add:
+### Optional: Add www Subdomain
 
 ```
 Type: CNAME
 Name: www
 Content: michaelmoran-eu.pages.dev
 TTL: Auto
-Proxy status: DNS Only
+Proxy: DNS Only
 ```
 
 ---
 
-## Step-by-Step for Cloudflare Dashboard
+## 🔧 Step-by-Step Instructions
 
 1. Go to: https://dash.cloudflare.com
 2. Select your account
 3. Click on **michaelmoran.eu** domain
 4. Click **DNS** in the sidebar
-5. **Delete** any existing `michaelmoran.eu` A records
-6. **Add** new records as specified above
-7. Wait 2-5 minutes for DNS to update
+5. **For existing records**: Click the orange cloud → turn OFF (gray cloud)
+6. **Add if missing**:
+   - Click "Add record"
+   - Use settings above
+7. Wait 2-5 minutes
+8. Test: https://michaelmoran.eu should load
 
 ---
 
-## Verification Checklist
+## ✅ Verification Checklist
 
-After updating DNS records:
+After fixing DNS:
 
 - [ ] `michaelmoran.eu` A records point to 162.159.82.167 and 162.159.83.167
-- [ ] OR `www.michaelmoran.eu` CNAME points to `michaelmoran-eu.pages.dev`
+- [ ] All records have **DNS Only** (gray cloud, not orange)
 - [ ] Cloudflare Pages shows "Active" status for custom domain
 - [ ] SSL certificate shows as "Valid" in Cloudflare Pages dashboard
 - [ ] Site loads at https://michaelmoran.eu without errors
+- [ ] Site loads at https://www.michaelmoran.eu without errors
 
 ---
 
-## Timeline
+## ⏱️ Timeline
 
 | Step | Time Required |
 |------|---------------|
-| DNS record update in Cloudflare | 2-5 minutes |
+| DNS record toggle (proxy OFF) | 1-2 minutes |
 | DNS propagation (global) | 5-30 minutes |
-| SSL certificate provisioning | 10-30 minutes |
+| SSL certificate provisioning | 10-30 minutes (if keeping proxied) |
 
 ---
 
-## Security Considerations
+## 🔒 Security Notes
 
-1. **Proxy Status**: Keep as "DNS Only" to avoid Cloudflare's universal SSL conflicts with Pages
-2. **TTL**: Keep at "Auto" for faster recovery from errors
-3. **SSl**: Cloudflare Pages will automatically provision Google SSL certificates
+1. **DNS Only vs Proxied**: 
+   - DNS Only = Direct to Pages, Cloudflare WAF still active
+   - Proxied = Cloudflare reverse proxy, requires SSL certificate
+
+2. **If keeping DNS Only**: Cloudflare WAF, rate limiting still apply
+
+3. **If keeping proxied**: Wait for SSL certificate or use DNS Only
+
+4. **TTL**: Keep at "Auto" for faster recovery from errors
 
 ---
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
-### Domain still shows 409 Conflict
+### Still getting SSL_ERROR_NO_CYPHER_OVERLAP?
+
+1. **Verify proxy status**: Must be DNS Only (gray cloud)
+2. **Verify IPs**: A records must point to:
+   - 162.159.82.167
+   - 162.159.83.167
+3. **Wait 5 minutes** after changes
+4. **Clear DNS cache**: `sudo dscacheutil -flushcache` (macOS) or equivalent
+
+### Domain shows 409 Conflict
+
 - Wait 10-15 minutes after DNS update
 - Refresh Cloudflare Pages → Custom Domains page
+- Check domain status changes from "pending" to "active"
 
-### SSL certificate not provisioning
-- Ensure DNS has propagated: `dig michaelmoran.eu A`
-- Check Cloudflare dashboard for certificate status
-- May take up to 48 hours in some cases
+### DNS not propagating
+
+```bash
+# Check DNS records globally
+dig michaelmoran.eu A +short
+# Should return: 162.159.82.167 and 162.159.83.167
+```
 
 ### Mixed content warnings
+
 - All resources use relative paths (`/path` not `http://domain/path`)
 - All CSS/JS/images loaded from same origin
 
 ---
 
-## Site Status Summary
+## 📊 Site Status Summary
 
 ```
 GitHub:    https://github.com/ZeroXSHDW/michaelmoran-eu
 Live:      https://michaelmoran-eu.pages.dev
-Custom:    https://michaelmoran.eu (pending DNS update)
+Custom:    https://michaelmoran.eu (waiting for DNS fix)
+Status:    ⚠️ Broken until DNS records are fixed
 ```
 
 ---
 
-## Next Steps After DNS Update
+## 📝 Next Steps After DNS Fix
 
 1. Wait 5-10 minutes
 2. Check https://michaelmoran.eu loads correctly
-3. Verify SSL certificate in browser
+3. Verify SSL certificate in browser (should be green)
 4. Update TODO markers in `src/content.ts` (LinkedIn URL, certifications, testimonials)
 5. Upload actual CV PDF to `public/cv/michael-moran-cv.pdf`
+6. Run `npm run build` and push to GitHub to trigger new deployment
+
+---
+
+## 🆘 Need Help?
+
+- **Cloudflare Dashboard**: https://dash.cloudflare.com
+- **GitHub Issues**: https://github.com/ZeroXSHDW/michaelmoran-eu/issues
+- **Pages Config**: wrangler.toml already configured with correct project name
