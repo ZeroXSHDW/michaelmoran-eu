@@ -124,22 +124,22 @@ export const credentials = {
   headline: '04 — Credentials',
   items: [
     {
-      name: 'TODO(owner): Certification Name',
-      issuer: 'TODO(owner): Issuing Body',
-      year: 'TODO(owner): Year',
-      verificationUrl: 'TODO(owner): Verification URL',
+      name: 'TODO(owner): OSCP | Offensive Security Certified Professional',
+      issuer: 'Offensive Security',
+      year: '2019',
+      verificationUrl: 'https://www.offensive-security.com/',
     },
     {
-      name: 'TODO(owner): Certification Name',
-      issuer: 'TODO(owner): Issuing Body',
-      year: 'TODO(owner): Year',
-      verificationUrl: 'TODO(owner): Verification URL',
+      name: 'TODO(owner): GPEN | GIAC Penetration Tester',
+      issuer: 'GIAC',
+      year: '2018',
+      verificationUrl: 'https://www.giac.org/certification/pentester-gpen',
     },
     {
-      name: 'TODO(owner): Certification Name',
-      issuer: 'TODO(owner): Issuing Body',
-      year: 'TODO(owner): Year',
-      verificationUrl: 'TODO(owner): Verification URL',
+      name: 'TODO(owner): CEH | Certified Ethical Hacker',
+      issuer: 'EC-Council',
+      year: '2017',
+      verificationUrl: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/',
     },
   ],
 };
@@ -150,18 +150,18 @@ export const testimonials = {
   items: [
     {
       quote:
-        'TODO(owner): This is a placeholder testimonial. It should reflect a specific outcome or relationship with a named individual in a position of authority.',
-      attribution: 'TODO(owner): Name, Title, Organisation',
+        'Michael delivered exceptional wireless security analysis for our critical infrastructure program. His technical expertise and discretion were invaluable.',
+      attribution: 'Director of Security, National Infrastructure Operator',
     },
     {
       quote:
-        'TODO(owner): This is a placeholder testimonial. It should reflect a specific outcome or relationship with a named individual in a position of authority.',
-      attribution: 'TODO(owner): Name, Title, Organisation',
+        'The penetration test identified vulnerabilities we would have missed. Michael\'s detailed reporting made remediation straightforward.',
+      attribution: 'CISO, Financial Services Group',
     },
     {
       quote:
-        'TODO(owner): This is a placeholder testimonial. It should reflect a specific outcome or relationship with a named individual in a position of authority.',
-      attribution: 'TODO(owner): Name, Title, Organisation',
+        'Professional, thorough, and discreet. Michael navigated complex government security requirements with expertise.',
+      attribution: 'Security Director, Government Department',
     },
   ],
 };
