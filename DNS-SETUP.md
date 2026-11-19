@@ -231,9 +231,35 @@ Setting: Forwarding URL - 301 - https://michaelmoran.eu/$1
 
 - [x] `michaelmoran-eu.pages.dev` deployment created via wrangler
 - [x] GitHub secrets configured: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
-- [x] Custom domain `michaelmoran.eu` added to Cloudflare Pages (status: **pending**)
-- [ ] Configure Njalla DNS records for CNAME/ALIAS
-- [ ] Verify HTTPS certificate in Cloudflare Pages dashboard
+- [x] Custom domain `michaelmoran.eu` added to Cloudflare Pages (status: **pending verification**)
+- [x] Njalla DNS records configured with A records pointing to Cloudflare Pages IPs
+- [ ] Wait for domain verification to show "Active" in Cloudflare Pages dashboard
+
+### Current DNS Configuration (Completed by AI)
+
+**Njalla A Records Set:**
+```
+Type: A
+Name: @
+Targets: 172.66.44.204, 172.66.47.52
+TTL: Auto
+```
+
+**Verification Status:**
+- DNS resolves correctly to Cloudflare IPs ✓
+- Waiting for Cloudflare Pages to complete domain verification
+- Site currently accessible at: https://michaelmoran-eu.pages.dev
+
+### Next Steps
+
+1. **Wait 24-48 hours** for DNS propagation and Cloudflare verification
+2. **Check Cloudflare Pages** Dashboard → Pages → Custom Domains
+3. **Status should change** from "pending" to "Active" with green checkmark
+4. **Verify HTTPS** - certificate should show as "Valid"
+
+### Immediate Fallback
+
+The site is already fully functional at **https://michaelmoran-eu.pages.dev** while waiting for custom domain verification.
 
 ---
 
