@@ -31,31 +31,24 @@ Site is live at: https://michaelmoran-eu.pages.dev
 
 The site `https://michaelmoran.eu` is currently **inaccessible** and showing security errors in browsers.
 
-**Cause**: DNS still points to old Cloudflare IPs that don't support proper TLS for Pages
+**Root Cause**: DNS records are **proxied** (orange cloud) but Cloudflare Pages hasn't issued an SSL certificate for the custom domain yet.
 
-**Immediate Action Required**:
+**Immediate Fix Required**:
+
+### Option A: Set DNS records to DNS Only (Gray Cloud)
 
 1. Log into Cloudflare Dashboard
-2. Go to DNS → Records
-3. DELETE all existing A records for `michaelmoran.eu`
-4. ADD these exact A records:
+2. Go to **michaelmoran.eu** → **DNS** → **Records**
+3. For each record (A/AAAA), click the **proxy toggle** to turn it OFF (gray cloud)
+   - This disables Cloudflare's reverse proxy
+   - Routes traffic directly to Pages IPs
 
-```
-Type: A
-Name: @
-Content: 162.159.82.167
-TTL: Auto
-Proxy: DNS Only
+### Option B: Wait for SSL certificate (may take hours)
 
-Type: A
-Name: @
-Content: 162.159.83.167
-TTL: Auto
-Proxy: DNS Only
-```
-
-5. Wait 5-10 minutes
-6. Test: https://michaelmoran.eu
+If you prefer proxied records:
+1. Keep records proxied
+2. Wait 2-24 hours for Google SSL certificate provisioning
+3. Check Cloudflare Pages → Custom Domains for "Active" status
 
 ---
 
