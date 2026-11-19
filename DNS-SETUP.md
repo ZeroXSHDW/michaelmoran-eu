@@ -25,6 +25,40 @@ Site is live at: https://michaelmoran-eu.pages.dev
 
 ---
 
+## 🔴 URGENT: Site Currently BROKEN
+
+**Current Issue**: SSL_ERROR_NO_CYPHER_OVERLAP
+
+The site `https://michaelmoran.eu` is currently **inaccessible** and showing security errors in browsers.
+
+**Cause**: DNS still points to old Cloudflare IPs that don't support proper TLS for Pages
+
+**Immediate Action Required**:
+
+1. Log into Cloudflare Dashboard
+2. Go to DNS → Records
+3. DELETE all existing A records for `michaelmoran.eu`
+4. ADD these exact A records:
+
+```
+Type: A
+Name: @
+Content: 162.159.82.167
+TTL: Auto
+Proxy: DNS Only
+
+Type: A
+Name: @
+Content: 162.159.83.167
+TTL: Auto
+Proxy: DNS Only
+```
+
+5. Wait 5-10 minutes
+6. Test: https://michaelmoran.eu
+
+---
+
 ## CRITICAL: Update DNS Records NOW
 
 Since nameservers are now using Cloudflare, you must update the DNS records in the **Cloudflare Dashboard**:
