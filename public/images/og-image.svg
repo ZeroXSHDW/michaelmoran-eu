@@ -1,47 +1,77 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0a1e4f"/>
-      <stop offset="100%" stop-color="#1a2a5a"/>
+      <stop offset="55%" stop-color="#1a2a5a"/>
+      <stop offset="100%" stop-color="#0a1e4f"/>
     </linearGradient>
-    <filter id="subtle-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
-      <feOffset dx="4" dy="4" result="offsetblur"/>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0">
+      <stop offset="0%" stop-color="#5a8fdf"/>
+      <stop offset="100%" stop-color="#7aa8e8"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dx="0" dy="0" result="offsetblur"/>
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.1"/>
+        <feFuncA type="linear" slope="0.35"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+    </pattern>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="1200" height="630" fill="#fafafa"/>
-  
-  <!-- Main content -->
-  <g filter="url(#subtle-shadow)" transform="translate(120, 120)">
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Decorative accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentGrad)"/>
+
+  <!-- Content -->
+  <g transform="translate(80, 100)" filter="url(#softGlow)">
+    <!-- Initial mark -->
+    <circle cx="30" cy="30" r="18" fill="none" stroke="url(#accentGrad)" stroke-width="2"/>
+    <text x="30" y="40" font-family="Fraunces, serif" font-size="20" font-weight="800" text-anchor="middle" fill="url(#accentGrad)">M</text>
+
     <!-- Name -->
-    <text x="0" y="0" font-family="Fraunces, serif" font-size="64" font-weight="800" fill="#1a1a1a">
+    <text x="80" y="55" font-family="Fraunces, serif" font-size="68" font-weight="800" fill="#fafafa" letter-spacing="-0.02">
       Michael Moran
     </text>
+
     <!-- Title -->
-    <text x="0" y="80" font-family="Inter, system-ui, sans-serif" font-size="28" fill="#6b7280">
+    <text x="80" y="100" font-family="Inter, sans-serif" font-size="22" font-weight="500" fill="url(#accentGrad)" letter-spacing="0.04">
       Cyber Security Professional
     </text>
+
+    <!-- Divider -->
+    <line x1="80" y1="120" x2="380" y2="120" stroke="#5a8fdf" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Value prop -->
+    <text x="80" y="160" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#e5e7eb" opacity="0.85">
+      Government &amp; high-value corporate engagements
+    </text>
+    <text x="80" y="188" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#e5e7eb" opacity="0.85">
+      Mobile security · Wireless analysis · Penetration testing
+    </text>
+
+    <!-- Domain -->
+    <text x="80" y="240" font-family="JetBrains Mono, monospace" font-size="14" font-weight="500" fill="#a3a3a3" letter-spacing="0.08">
+      michaelmoran.eu
+    </text>
   </g>
-  
-  <!-- Horizontal rule -->
-  <line x1="0" y1="380" x2="1200" y2="380" stroke="#e0e0e0" stroke-width="1"/>
-  
-  <!-- Tagline -->
-  <text x="120" y="430" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#6b7280">
-    Trusted security asset where failure is not an option
-  </text>
-  
-  <!-- Footer -->
-  <text x="120" y="570" font-family="JetBrains Mono, monospace" font-size="16" fill="#6b7280">
-    michaelmoran.eu
-  </text>
+
+  <!-- Bottom-right lockup -->
+  <g transform="translate(980, 560)" text-anchor="end">
+    <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="12" fill="#5a8fdf" letter-spacing="0.06">
+      SECURITY BY DESIGN
+    </text>
+    <text x="0" y="20" font-family="Inter, sans-serif" font-size="11" fill="#6b7280" letter-spacing="0.04">
+      No cookies · No tracking · No external requests
+    </text>
+  </g>
 </svg>
