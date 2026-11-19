@@ -2,7 +2,8 @@
 const { title, description } = Astro.props;
 const { 
   siteConfig, 
-  ogImage 
+  ogImage,
+  contact,
 } = await import('../content');
 
 // Generate nonce for CSP
@@ -18,7 +19,7 @@ const jsonLd = {
   "jobTitle": siteConfig.title,
   "url": siteConfig.url,
   "sameAs": [
-    siteConfig.linkedin || "https://linkedin.com/in/placeholder"
+    contact.linkedin.url // TODO(owner): Replace with actual LinkedIn URL
   ],
   "description": siteConfig.description,
   "knowsAbout": [

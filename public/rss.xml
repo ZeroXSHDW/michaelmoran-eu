@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Michael Moran — Cyber Security Professional</title>
+    <description>Senior cyber security consultant specializing in mobile security, wireless analysis, network forensics, penetration testing, and security architecture.</description>
+    <link>https://michaelmoran.eu</link>
+    <atom:link href="https://michaelmoran.eu/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Thu, 19 Nov 2026 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Michael Moran — Cyber Security Professional</title>
+      <link>https://michaelmoran.eu</link>
+      <guid>https://michaelmoran.eu</guid>
+      <description>Senior cyber security consultant. Government and high-value corporate engagements in mobile security, wireless analysis, network forensics, penetration testing, and security architecture.</description>
+    </item>
+  </channel>
+</rss>
