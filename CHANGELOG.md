@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-11-19
+
+### Added
+- Self-hosted font files (Fraunces, Inter, JetBrains Mono) in WOFF2 format
+- Automated RSS feed generation with full content syndication (`scripts/generate-rss.mjs`)
+- Automated CV PDF generation from built HTML using Puppeteer (`scripts/generate-cv-pdf.mjs`)
+- Build-time asset generation scripts integrated into npm build process
+- Font preload hints for improved performance
+
+### Changed
+- Upgraded Astro from v3 to v7 (latest)
+- Updated all npm dependencies to latest versions
+- Updated copyright year to 2026
+- Fixed JSON-LD rendering using Astro's `set:html` directive (removed fix-jsonld.js workaround)
+- Updated CSP header with correct script hash for scroll reveal functionality
+- Improved build process with asset generation as pre-build step
+
+### Fixed
+- Missing font files in public/fonts/ (now properly downloaded and bundled)
+- Missing CV PDF in public/cv/ (now auto-generated)
+- RSS feed now includes all site content (hero, profile, capabilities, engagements, testimonials)
+- JSON-LD Person schema now renders correctly without post-processing
+
 ## [1.1.0] - 2024-11-19
 
 ### Added

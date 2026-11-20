@@ -2,16 +2,15 @@
 const { label, title } = Astro.props;
 ---
 
-<div class="container">
-  <div class="section-header">
-    <span class="section-label accent">{label}</span>
-    {title && <h2 class="mt-1">{title}</h2>}
-  </div>
+<div class="section-header">
+  <span class="section-label accent">{label}</span>
+  {title && <h2 class="mt-1">{title}</h2>}
 </div>
 
 <style>
 .section-header {
   text-align: center;
+  margin-bottom: var(--space-5);
 }
 
 .section-label {

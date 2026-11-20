@@ -7,19 +7,25 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/fix-jsonld.js",
+    "build": "npm run generate:assets && astro build",
     "preview": "astro preview",
     "format": "prettier --write .",
     "lint": "echo 'No eslint rules configured'",
     "check": "tsc --noEmit",
     "deploy": "wrangler pages deploy",
-    "validate": "astro check && npm run lint"
+    "validate": "astro check && npm run lint",
+    "generate:assets": "npm run generate:rss && npm run generate:cv-pdf",
+    "generate:rss": "node scripts/generate-rss.mjs",
+    "generate:cv-pdf": "node scripts/generate-cv-pdf.mjs"
   },
   "dependencies": {
-    "astro": "^3.0.0"
+    "@astrojs/rss": "^4.0.19",
+    "astro": "^7.4.13"
   },
   "devDependencies": {
+    "@types/node": "^26.6.6",
     "prettier": "^3.0.0",
+    "puppeteer": "^25.18.1",
     "typescript": "^5.0.0"
   },
   "private": true

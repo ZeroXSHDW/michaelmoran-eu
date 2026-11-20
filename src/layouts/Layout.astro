@@ -31,6 +31,8 @@ const jsonLd = {
     "Incident Response"
   ]
 };
+
+const jsonLdString = JSON.stringify(jsonLd, null, 2);
 ---
 
 <!DOCTYPE html>
@@ -66,9 +68,7 @@ const jsonLd = {
     <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     
     <!-- JSON-LD Person Schema -->
-    <script type="application/ld+json">
-      {JSON.stringify(jsonLd)}
-    </script>
+    <script type="application/ld+json" set:html={jsonLdString} />
     
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/global.css" />

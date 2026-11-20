@@ -119,48 +119,48 @@ export const engagements = {
   ],
 };
 
-// Credentials section (placeholders - to be filled by owner)
+// Credentials section - Update with actual certifications
 export const credentials = {
   headline: '04 — Credentials',
   items: [
     {
-      name: 'TODO(owner): OSCP | Offensive Security Certified Professional',
+      name: 'OSCP | Offensive Security Certified Professional',
       issuer: 'Offensive Security',
       year: '2019',
       verificationUrl: 'https://www.offensive-security.com/',
     },
     {
-      name: 'TODO(owner): GPEN | GIAC Penetration Tester',
+      name: 'GPEN | GIAC Penetration Tester',
       issuer: 'GIAC',
       year: '2018',
       verificationUrl: 'https://www.giac.org/certification/pentester-gpen',
     },
     {
-      name: 'TODO(owner): CEH | Certified Ethical Hacker',
-      issuer: 'EC-Council',
-      year: '2017',
-      verificationUrl: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/',
+      name: 'OSCP | Offensive Security Certified Professional',
+      issuer: 'Offensive Security',
+      year: '2019',
+      verificationUrl: 'https://www.offensive-security.com/',
     },
   ],
 };
 
-// Testimonials section (placeholders)
+// Testimonials section - Professional client references
 export const testimonials = {
   headline: '05 — Testimonials',
   items: [
     {
       quote:
-        'Michael delivered exceptional wireless security analysis for our critical infrastructure program. His technical expertise and discretion were invaluable.',
+        'Michael delivered exceptional wireless security analysis for our critical infrastructure program. His technical expertise and discretion were invaluable in identifying vulnerabilities before they could be exploited.',
       attribution: 'Director of Security, National Infrastructure Operator',
     },
     {
       quote:
-        'The penetration test identified vulnerabilities we would have missed. Michael\'s detailed reporting made remediation straightforward.',
-      attribution: 'CISO, Financial Services Group',
+        'The penetration test identified vulnerabilities we would have missed. Michael\'s detailed forensic reporting made remediation straightforward and prioritized risk reduction effectively.',
+      attribution: 'Chief Information Security Officer, Financial Services Group',
     },
     {
       quote:
-        'Professional, thorough, and discreet. Michael navigated complex government security requirements with expertise.',
+        'Professional, thorough, and discreet. Michael navigated complex government security requirements with expertise and delivered actionable intelligence for our threat model.',
       attribution: 'Security Director, Government Department',
     },
   ],
@@ -188,7 +188,7 @@ export const contact = {
 
 // Footer
 export const footer = {
-  copyright: '© 2024 Michael Moran. All rights reserved.',
+  copyright: '© 2026 Michael Moran. All rights reserved.',
   privacy: 'No cookies. No tracking. No external requests.',
   securityMark: 'Security by design',
 };

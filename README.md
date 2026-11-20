@@ -87,17 +87,31 @@ npm install
 npm run dev
 ```
 
-The site will be available at http://localhost:5173
+The site will be available at http://localhost:4321 (Astro v7 default)
 
 ### Building
 
 ```bash
-# Development build
+# Full build (generates RSS, CV PDF, then builds site)
 npm run build
 
 # Preview production build
 npm run preview
+
+# Generate assets only (RSS feed + CV PDF)
+npm run generate:assets
+
+# Generate RSS feed only
+npm run generate:rss
+
+# Generate CV PDF only
+npm run generate:cv-pdf
 ```
+
+The build process automatically:
+1. Generates RSS feed from content (`scripts/generate-rss.mjs`)
+2. Generates CV PDF from built HTML using Puppeteer (`scripts/generate-cv-pdf.mjs`)
+3. Builds the Astro site to `dist/`
 
 ### Deploying
 
@@ -144,7 +158,7 @@ To edit:
 Defined in `_headers`:
 
 ```
-Content-Security-Policy     script-src 'self' 'sha256-2ZnDbMnvSkxuev4hVcFtAERGoN0iXOtSfwayfp9Oicg=' 'strict-dynamic'
+Content-Security-Policy     script-src 'self' 'sha256-Z367iT9v/uJ2/DSv5f0xruelN8rdKNyPhki8n2Oa9AQ=' 'strict-dynamic'
 X-Frame-Options            DENY
 Referrer-Policy            strict-origin-when-cross-origin
 Permissions-Policy         (lockdown of all browser features)
@@ -240,4 +254,6 @@ ISC — Free for personal and professional use.
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.2.0 | 2026-11-19 | Font assets, RSS feed, CV PDF generation, Astro v7 upgrade |
+| 1.1.0 | 2024-11-19 | CV page, RSS feed, 404 page, CSP updates |
 | 1.0.0 | 2024-01-01 | Initial release |
