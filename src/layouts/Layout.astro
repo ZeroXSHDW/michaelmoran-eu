@@ -7,6 +7,10 @@ const {
 
 const fullTitle = title ? `${title}` : siteConfig.title;
 
+// Generate a CSP nonce for inline script security
+const crypto = require('crypto');
+const scriptNonce = crypto.randomBytes(16).toString('base64');
+
 // Build JSON-LD schema as string for proper escaping
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,7 +19,8 @@ const jsonLd = {
   "jobTitle": siteConfig.title,
   "url": siteConfig.url,
   "sameAs": [
-    contact.linkedin.url
+    contact.linkedin.url,
+    contact.keybase.url
   ],
   "description": siteConfig.description,
   "knowsAbout": [
@@ -36,6 +41,9 @@ const jsonLdString = JSON.stringify(jsonLd, null, 2);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Security headers -->
+    <meta http-equiv="Content-Security-Policy" content={`script-src 'self' 'nonce-${scriptNonce}'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'`} />
     
     <!-- Title -->
     <title>{fullTitle}</title>
@@ -79,8 +87,8 @@ const jsonLdString = JSON.stringify(jsonLd, null, 2);
       <slot />
     </div>
     
-    <!-- Scroll reveal script -->
-    <script is:inline>
+    <!-- Scroll reveal script with CSP nonce -->
+    <script is:inline nonce={scriptNonce}>
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {

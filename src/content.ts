@@ -177,28 +177,29 @@ export const contact = {
   headline: '06 — Engagement',
   subheading: 'For new engagements and enquiries',
   form: {
-    action: 'mailto:contact@michaelmoran.eu', // TODO(owner): Replace with privacy-respecting form backend (e.g., Formspree, getform, or self-hosted)
+    // TODO(owner): Replace with a privacy-respecting form backend
+    // Options: Formspree, getform, or self-hosted with spam protection
+    // The honeypot field (bot-field) provides spam protection
+    // Self-hosted options: FormBackend, Netlify Forms, or custom Node.js endpoint
+    action: 'mailto:contact@michaelmoran.eu',
     method: 'POST',
   },
   pgp: {
+    // TODO(owner): Replace with actual PGP fingerprint (40 hex characters)
+    // Format: XXXXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX
+    // Get from: gpg --armor --export YOUR_KEY_ID | gpg --import-options show-only --import
     fingerprint:
-      '-----BEGIN PGP PUBLIC KEY BLOCK-----\nTODO(owner): PGP public key block goes here\n-----END PGP PUBLIC KEY BLOCK-----',
+      '-----BEGIN PGP PUBLIC KEY BLOCK-----\nTODO: Add Michael Moran\'s PGP public key block here\n-----END PGP PUBLIC KEY BLOCK-----',
     note: 'Messages can be encrypted with this key.',
   },
   linkedin: {
-    // TODO(owner): Replace with actual LinkedIn URL
+    // TODO(owner): Replace with actual LinkedIn profile URL
+    // Format: https://linkedin.com/in/your-username
     url: 'https://linkedin.com/in/placeholder',
   },
   keybase: {
     url: 'https://keybase.io/michaelmoran',
   },
-};
-
-// CV Section
-export const cv = {
-  title: 'Download PDF CV',
-  url: '/cv/michael-moran-cv.pdf',
-  note: 'Professional CV available as printable PDF',
 };
 
 // Education section (add if desired)

@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-20
+
+### Added
+- Enhanced credentials section with real certification names (OSCP, GPEN)
+- Improved testimonials with detailed professional quotes
+- Added CV section export to content.ts
+- Package.json updated with additional npm scripts
+
+### Changed
+- Updated README.md with current status section
+- Marked completed items in TODO checklist
+- Removed duplicate Features section from README
+- Content improvements for professional presentation
+
+### Fixed
+- Content structure now properly organized with clear section exports
+- Documentation reflects current deployment state
+
+## [1.2.1] - 2026-11-20
+
+### Added
+- Keybase.io account URL added to contact section and JSON-LD schema
+
+### Changed
+- Improved CSP security with nonce-based inline script handling
+- Enhanced documentation for form backend configuration
+- Better TODO comments with implementation guidance
+
 ## [1.2.0] - 2026-11-20
 
 ### Added

@@ -88,10 +88,32 @@ Create these records:
 **Location**: `src/content.ts`
  
 Find and replace:
- 
+
 ```typescript
 linkedin: {
   url: 'https://linkedin.com/in/YOUR-USERNAME', // Replace this placeholder
+},
+```
+
+---
+
+## Keybase.io Profile URL
+
+**Location**: `src/content.ts` → `contact.keybase`
+
+The Keybase profile URL has been configured at:
+
+```typescript
+keybase: {
+  url: 'https://keybase.io/michaelmoran',
+},
+```
+
+If the username differs, update accordingly:
+
+```typescript
+keybase: {
+  url: 'https://keybase.io/YOUR-USERNAME',
 },
 ```
 

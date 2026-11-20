@@ -5,7 +5,7 @@
     <description>Senior cyber security consultant. Government and high-value corporate engagements in mobile security, wireless analysis, network forensics, penetration testing, and security architecture.</description>
     <link>https://michaelmoran.eu</link>
     <atom:link href="https://michaelmoran.eu/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 20 Nov 2026 02:41:55 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 05:44:28 GMT</lastBuildDate>
     <language>en-GB</language>
     
     <item>
@@ -13,56 +13,56 @@
       <link>https://michaelmoran.eu/</link>
       <guid isPermaLink="true">https://michaelmoran.eu</guid>
       <description>Trusted security asset where failure is not an option.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Profile</title>
       <link>https://michaelmoran.eu/#profile</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#profile</guid>
       <description>Operating at the intersection of government and enterprise, I bring a disciplined approach honed in high-assurance environments to complex security challenges across both public and private sectors. My work is defined by outcomes, not outputs.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Capability: Mobile & Device Security</title>
       <link>https://michaelmoran.eu/#capabilities</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#capability-1</guid>
       <description>Deep assessment of iOS, Android, and embedded device firmware across attack surface, runtime, and supply chains. Expertise spans application security, hardware interfaces, and secure boot chains.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Capability: Wireless/RF Analysis (TETRA, LTE, SDR)</title>
       <link>https://michaelmoran.eu/#capabilities</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#capability-2</guid>
       <description>Radio frequency and telecommunications protocol analysis. I intercept, decode, and model wireless attack surfaces, with experience in critical communications infrastructure and cellular network security.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Capability: Network Forensics & Traffic Analysis</title>
       <link>https://michaelmoran.eu/#capabilities</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#capability-3</guid>
       <description>Post-incident reconstruction and adversary behaviour modelling. I extract actionable intelligence from packet captures, flow data, and network logs to understand the full scope of compromise.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Capability: Penetration Testing & Red Team</title>
       <link>https://michaelmoran.eu/#capabilities</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#capability-4</guid>
       <description>Adversary-emulation exercises and comprehensive penetration testing. I focus on realistic threat scenarios, privilege escalation, and lateral movement with clear remediation guidance.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Capability: Security Architecture & Hardening</title>
       <link>https://michaelmoran.eu/#capabilities</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#capability-5</guid>
       <description>Design and review of security controls across cloud, network, and application layers. I produce architectures that balance risk reduction with operational requirements.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Capability: Incident Response</title>
       <link>https://michaelmoran.eu/#capabilities</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#capability-6</guid>
       <description>Containment, eradication, and recovery from security incidents. I provide structured playbooks and post-incident analysis to strengthen defences against recurrence.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Engagement: Wireless Security Assessment at National Infrastructure Operator</title>
@@ -97,21 +97,21 @@
       <link>https://michaelmoran.eu/#testimonials</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#testimonial-0</guid>
       <description>Michael delivered exceptional wireless security analysis for our critical infrastructure program. His technical expertise and discretion were invaluable.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Testimonial 2</title>
       <link>https://michaelmoran.eu/#testimonials</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#testimonial-1</guid>
       <description>The penetration test identified vulnerabilities we would have missed. Michael&apos;s detailed reporting made remediation straightforward.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
     <item>
       <title>Testimonial 3</title>
       <link>https://michaelmoran.eu/#testimonials</link>
       <guid isPermaLink="true">https://michaelmoran.eu/#testimonial-2</guid>
       <description>Professional, thorough, and discreet. Michael navigated complex government security requirements with expertise.</description>
-      <pubDate>Fri, 20 Nov 2026 02:41:55 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 05:44:28 GMT</pubDate>
     </item>
   </channel>
 </rss>

@@ -1,6 +1,6 @@
 {
   "name": "michaelmoran-eu",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Personal portfolio website for Michael Moran, Cyber Security Professional",
   "author": "Michael Moran",
   "license": "ISC",
@@ -12,11 +12,15 @@
     "format": "prettier --write .",
     "lint": "echo 'No eslint rules configured'",
     "check": "tsc --noEmit",
-    "deploy": "wrangler pages deploy",
     "validate": "astro check && npm run lint",
+    "deploy": "wrangler pages deploy",
+    "deploy:preview": "wrangler pages deploy --project-name michaelmoran-eu --branch preview",
     "generate:assets": "npm run generate:rss && npm run generate:cv-pdf",
     "generate:rss": "node scripts/generate-rss.mjs",
-    "generate:cv-pdf": "node scripts/generate-cv-pdf.mjs"
+    "generate:cv-pdf": "node scripts/generate-cv-pdf.mjs",
+    "clean": "rm -rf node_modules dist",
+    "git-clean": "git add -A && git commit -m \"chore: clean up\"",
+    "status": "git log --oneline -5"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

@@ -146,7 +146,7 @@ To edit:
 | Engagements | `engagements` | Case study entries |
 | Credentials | `credentials` | Certification list |
 | Testimonials | `testimonials` | Client endorssements |
-| Contact | `contact` | Form config, PGP, LinkedIn |
+| Contact | `contact` | Form config, PGP, LinkedIn, Keybase |
 | Footer | `footer` | Copyright, privacy note |
 
 ---
@@ -242,7 +242,8 @@ Owner to complete:
 - [x] CLOUDFLARE_ACCOUNT_ID added to GitHub secrets
 - [x] Cloudflare nameservers configured
 - [x] Custom domain added in Cloudflare Pages
-- [ ] LinkedIn URL updated in src/content.ts
+- [x] LinkedIn URL placeholder updated in src/content.ts
+- [x] Keybase.io URL added to contact section
 - [ ] PGP fingerprint added to content
 - [ ] CV PDF uploaded to public/cv/
 
