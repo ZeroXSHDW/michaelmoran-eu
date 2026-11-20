@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-11-20
+
+### Added
+- Theme color meta tags for mobile browsers (light and dark modes)
+- Canonical URL link tag for SEO
+- Twitter site and creator meta tags with @ZeroXSHDW handle
+
+### Changed
+- Layout component CSS moved to external file for better caching
+- Improved SEO metadata with additional Open Graph and Twitter tags
+
 ## [1.5.0] - 2026-11-20
 
 ### Added
