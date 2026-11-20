@@ -1,0 +1,8 @@
+# Contact
+Contact: michael@michaelmoran.eu
+Expires: 2027-12-31T23:59:55.000Z
+Preferred-Languages: en
+Canonical: https://michaelmoran.eu/.well-known/security.txt
+
+# Encryption
+PGP Fingerprint: Add your PGP fingerprint here

@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, statSync } from 'fs';
 import { globSync } from 'glob';
 
-const SITE_URL = 'https://www.michaelmoran.eu';
+const SITE_URL = 'https://michaelmoran.eu';
 
 async function generateSitemap() {
   const files = globSync('dist/**/*.html');

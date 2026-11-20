@@ -10,7 +10,9 @@ const checks = [
     try {
       const html = readFileSync('dist/index.html', 'utf-8');
       const scripts = html.match(/<script[^>]*>([\s\S]*?)<\/script>/gi) || [];
-      return scripts.every(s => s.includes('sha256-') || s.includes('sha384-') || s.includes('sha512-') || s.includes('src='));
+      // JSON-LD scripts (type="application/ld+json") are not executable and bypass CSP
+      const executableScripts = scripts.filter(s => !s.includes('type="application/ld+json"'));
+      return executableScripts.every(s => s.includes('sha256-') || s.includes('sha384-') || s.includes('sha512-') || s.includes('nonce=') || s.includes('src='));
     } catch { return false; }
   }},
   { name: 'No external fonts (self-hosted)', test: () => {

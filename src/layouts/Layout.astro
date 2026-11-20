@@ -2,7 +2,6 @@
 const { title, description } = Astro.props;
 const { 
   siteConfig, 
-  contact,
 } = (await import('../content.ts')).content;
 import { randomBytes } from 'crypto';
 
@@ -10,31 +9,6 @@ const fullTitle = title ? `${title}` : siteConfig.title;
 
 // Generate a CSP nonce for inline script security
 const scriptNonce = randomBytes(16).toString('base64');
-
-// Build JSON-LD schema as string for proper escaping
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": siteConfig.author,
-  "jobTitle": siteConfig.title,
-  "url": siteConfig.url,
-  "sameAs": [
-    contact.linkedIn,
-    contact.github,
-    contact.keybase,
-  ],
-  "description": siteConfig.description,
-  "knowsAbout": [
-    "Mobile & Device Security",
-    "Wireless/RF Analysis",
-    "Network Forensics",
-    "Penetration Testing",
-    "Security Architecture",
-    "Incident Response"
-  ]
-};
-
-const jsonLdString = JSON.stringify(jsonLd, null, 2);
 ---
 
 <!DOCTYPE html>
@@ -44,7 +18,7 @@ const jsonLdString = JSON.stringify(jsonLd, null, 2);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <!-- Security headers -->
-    <meta http-equiv="Content-Security-Policy" content={`script-src 'self' 'nonce-${scriptNonce}'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'`} />
+    <meta http-equiv="Content-Security-Policy" content={`script-src 'self' 'sha256-Z367iT9v/uJ2/DSv5f0xruelN8rdKNyPhki8n2Oa9AQ=' 'sha256-bpQoAskjuz/DyHpEkRriEG4LvQ4Mkvj7Bxs4aTi819g=' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'`} />
     
     <!-- Title -->
     <title>{fullTitle}</title>
@@ -72,9 +46,6 @@ const jsonLdString = JSON.stringify(jsonLd, null, 2);
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.svg" />
     <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     
-    <!-- JSON-LD Person Schema -->
-    <script type="application/ld+json" set:html={jsonLdString} />
-    
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/global.css" />
     
@@ -89,7 +60,7 @@ const jsonLdString = JSON.stringify(jsonLd, null, 2);
     </div>
     
     <!-- Scroll reveal script with CSP nonce -->
-    <script is:inline nonce={scriptNonce}>
+    <script nonce={scriptNonce}>
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {

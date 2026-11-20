@@ -2,9 +2,9 @@
 # Applied to all resources
 
 /*
-  # Content Security Policy - nonce will be injected by Astro
-  # This is a strict policy; adjust as needed for any inline scripts
-  Content-Security-Policy: script-src 'self' 'sha256-Z367iT9v/uJ2/DSv5f0xruelN8rdKNyPhki8n2Oa9AQ=' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; default-src 'self'
+  # Content Security Policy - SHA256 hashes for inline scripts
+  # Hash for scroll-reveal script: sha256-bpQoAskjuz/DyHpEkRriEG4LvQ4Mkvj7Bxs4aTi819g=
+  Content-Security-Policy: script-src 'self' 'sha256-Z367iT9v/uJ2/DSv5f0xruelN8rdKNyPhki8n2Oa9AQ=' 'sha256-bpQoAskjuz/DyHpEkRriEG4LvQ4Mkvj7Bxs4aTi819g=' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; default-src 'self'
 
   # Prevent clickjacking
   X-Frame-Options: DENY
