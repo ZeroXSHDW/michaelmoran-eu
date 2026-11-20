@@ -1,84 +1,149 @@
 ---
-const { action, method } = Astro.props;
+const { action, method: _, email, pgpFingerprint, linkedIn, keybase, github, responseTime, formEndpoint } = Astro.props;
+
+// Use formEndpoint if provided, otherwise fall back to action
+const formAction = formEndpoint || action;
 ---
 
-<form class="contact-form" data-action={action} method={method}>
-  <!-- TODO(owner): Configure a privacy-respecting form backend (Formspree, getform, or self-hosted)
-       The form data will be submitted to the action URL when the owner replaces the placeholder
-  -->
-  <input type="hidden" name="_subject" value="Website Contact Form Submission" />
-  <div class="form-field">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required required-min-length="2" maxlength="100" />
+<section class="contact-section">
+  <div class="contact-layout">
+    <!-- Contact Form -->
+    <div class="contact-form-container">
+      <h3 class="contact-form-title">Get in Touch</h3>
+      <form class="contact-form" action={formAction} method="POST">
+        <input type="hidden" name="_subject" value="Website Contact Form Submission" />
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required required-min-length="2" maxlength="100" />
+        </div>
+
+        <div class="form-field">
+          <label for="organisation">Organisation</label>
+          <input type="text" id="organisation" name="organisation" required maxlength="100" />
+        </div>
+
+        <div class="form-field">
+          <label for="engagement-type">Engagement Type</label>
+          <select id="engagement-type" name="engagement-type" required>
+            <option value="" disabled selected>Select...</option>
+            <option value="penetration-testing">Penetration Testing</option>
+            <option value="wireless-analysis">Wireless / RF Analysis</option>
+            <option value="mobile-security">Mobile Security</option>
+            <option value="network-forensics">Network Forensics</option>
+            <option value="architecture-review">Security Architecture Review</option>
+            <option value="incident-response">Incident Response</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required minlength="10" maxlength="2000"></textarea>
+        </div>
+
+        <!-- Honeypot field for spam protection -->
+        <div class="honeypot" hidden>
+          <label for="bot-field">Leave this field empty</label>
+          <input type="text" id="bot-field" name="bot-field" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit" class="contact-submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Contact Info Sidebar -->
+    <div class="contact-sidebar">
+      <h3 class="contact-heading">Contact</h3>
+      
+      <div class="contact-method">
+        <span class="contact-label">Email</span>
+        <a href={`mailto:${email}`} class="contact-link">{email}</a>
+      </div>
+      
+      {linkedIn && (
+        <div class="contact-method">
+          <span class="contact-label">LinkedIn</span>
+          <a href={linkedIn} class="contact-link" target="_blank" rel="noopener noreferrer">{linkedIn.replace('https://', '').replace('https://www.', '')}</a>
+        </div>
+      )}
+      
+      {keybase && (
+        <div class="contact-method">
+          <span class="contact-label">Keybase</span>
+          <a href={keybase} class="contact-link" target="_blank" rel="noopener noreferrer">{keybase.replace('https://', '')}</a>
+        </div>
+      )}
+      
+      {github && (
+        <div class="contact-method">
+          <span class="contact-label">GitHub</span>
+          <a href={github} class="contact-link" target="_blank" rel="noopener noreferrer">{github.replace('https://', '').replace('github.com/', '')}</a>
+        </div>
+      )}
+      
+      <div class="contact-method">
+        <span class="contact-label">Response Time</span>
+        <span class="contact-value">{responseTime || 'Typically within 24 hours'}</span>
+      </div>
+      
+      {pgpFingerprint && (
+        <div class="contact-pgp">
+          <h4 class="pgp-heading">PGP Fingerprint</h4>
+          <p class="pgp-fingerprint">{pgpFingerprint}</p>
+          <p class="pgp-note">Messages can be encrypted with this key.</p>
+        </div>
+      )}
+    </div>
   </div>
-
-  <div class="form-field">
-    <label for="organisation">Organisation</label>
-    <input type="text" id="organisation" name="organisation" required maxlength="100" />
-  </div>
-
-  <div class="form-field">
-    <label for="engagement-type">Engagement Type</label>
-    <select id="engagement-type" name="engagement-type" required>
-      <option value="" disabled selected>Select...</option>
-      <option value="penetration-testing">Penetration Testing</option>
-      <option value="wireless-analysis">Wireless / RF Analysis</option>
-      <option value="mobile-security">Mobile Security</option>
-      <option value="network-forensics">Network Forensics</option>
-      <option value="architecture-review">Security Architecture Review</option>
-      <option value="incident-response">Incident Response</option>
-      <option value="other">Other</option>
-    </select>
-  </div>
-
-  <div class="form-field">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required minlength="10" maxlength="2000"></textarea>
-  </div>
-
-  <!-- Honeypot field for spam protection -->
-  <div class="honeypot" hidden>
-    <label for="bot-field">Leave this field empty</label>
-    <input type="text" id="bot-field" name="bot-field" tabindex="-1" autocomplete="off" />
-  </div>
-
-  <button type="submit" class="contact-submit">Submit</button>
-</form>
-
-<div class="contact-info">
-  <p class="contact-note">Messages are handled via encrypted email. PGP fingerprint available on request.</p>
-</div>
+</section>
 
 <style>
+  @import '/styles/global.css';
+  
+  .contact-section {
+    padding: var(--space-6) 0;
+  }
+  
+  .contact-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  
+  @media (min-width: 48em) {
+    .contact-layout {
+      grid-template-columns: 1fr 320px;
+      align-items: flex-start;
+    }
+  }
+  
+  .contact-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .contact-form-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-4) 0;
+    color: var(--color-text);
+  }
+  
   .contact-form {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
     width: 100%;
-    max-width: 500px;
-    margin: var(--space-4) auto;
   }
-
-  @media (max-width: 48em) {
-    .contact-form {
-      max-width: 100%;
-      margin: var(--space-3) auto;
-    }
-  }
-
-  @media (max-width: 30em) {
-    .contact-form {
-      gap: var(--space-2);
-      margin: var(--space-2) auto;
-    }
-  }
-
+  
   .form-field {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
-
+  
   .form-field label {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
     font-size: 0.8rem;
@@ -87,13 +152,7 @@ const { action, method } = Astro.props;
     letter-spacing: 0.05em;
     color: var(--color-text);
   }
-
-  @media (max-width: 30em) {
-    .form-field label {
-      font-size: 0.75rem;
-    }
-  }
-
+  
   .form-field input,
   .form-field select,
   .form-field textarea {
@@ -107,7 +166,7 @@ const { action, method } = Astro.props;
     font-size: 1rem;
     transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
   }
-
+  
   .form-field input:focus,
   .form-field select:focus,
   .form-field textarea:focus {
@@ -115,25 +174,12 @@ const { action, method } = Astro.props;
     outline-offset: 2px;
     border-color: var(--color-accent);
   }
-
+  
   .form-field textarea {
     resize: vertical;
     min-height: 120px;
   }
-
-  @media (max-width: 48em) {
-    .form-field textarea {
-      min-height: 100px;
-      font-size: 0.9375rem;
-    }
-  }
-
-  @media (max-width: 30em) {
-    .form-field textarea {
-      min-height: 80px;
-    }
-  }
-
+  
   .contact-submit {
     align-self: flex-start;
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
@@ -146,35 +192,87 @@ const { action, method } = Astro.props;
     cursor: pointer;
     transition: opacity var(--duration-fast) ease;
   }
-
-  @media (max-width: 48em) {
-    .contact-submit {
-      align-self: stretch;
-    }
-  }
-
+  
   .contact-submit:hover,
   .contact-submit:focus {
     opacity: 0.9;
   }
-
+  
   .honeypot {
     display: none;
   }
-
-  .contact-info {
-    margin-top: var(--space-2);
-    text-align: center;
+  
+  /* Contact Sidebar Styles */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
   }
-
-  .contact-note {
-    font-size: 0.85rem;
+  
+  .contact-heading {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-3) 0;
+  }
+  
+  .contact-method {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .contact-label {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--color-meta);
   }
-
-  @media (max-width: 48em) {
-    .contact-note {
-      font-size: 0.8rem;
-    }
+  
+  .contact-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: text-decoration var(--duration-fast) ease;
+    font-size: 1rem;
+  }
+  
+  .contact-link:hover,
+  .contact-link:focus {
+    text-decoration: underline;
+  }
+  
+  .contact-value {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+  
+  .contact-pgp {
+    padding: var(--space-3);
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+  }
+  
+  .pgp-heading {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0 0 var(--space-1) 0;
+    color: var(--color-text);
+  }
+  
+  .pgp-fingerprint {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.85rem;
+    word-break: break-all;
+    color: var(--color-text);
+    margin: 0 0 var(--space-1) 0;
+  }
+  
+  .pgp-note {
+    font-size: 0.8rem;
+    color: var(--color-meta);
+    margin: 0;
   }
 </style>
