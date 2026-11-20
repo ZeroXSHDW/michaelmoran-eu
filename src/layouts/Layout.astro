@@ -17,12 +17,19 @@ const scriptNonce = randomBytes(16).toString('base64');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: dark)" />
+    
     <!-- Security headers -->
     <meta http-equiv="Content-Security-Policy" content={`script-src 'self' 'sha256-Z367iT9v/uJ2/DSv5f0xruelN8rdKNyPhki8n2Oa9AQ=' 'sha256-bpQoAskjuz/DyHpEkRriEG4LvQ4Mkvj7Bxs4aTi819g=' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'`} />
     
     <!-- Title -->
     <title>{fullTitle}</title>
     <meta name="description" content={description || siteConfig.description} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={siteConfig.url} />
     
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
@@ -39,6 +46,8 @@ const scriptNonce = randomBytes(16).toString('base64');
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description || siteConfig.description} />
     <meta name="twitter:image" content={`${siteConfig.url}/images/og-image.svg`} />
+    <meta name="twitter:site" content="@ZeroXSHDW" />
+    <meta name="twitter:creator" content="@ZeroXSHDW" />
     
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -46,13 +55,13 @@ const scriptNonce = randomBytes(16).toString('base64');
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.svg" />
     <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="/styles/global.css" />
-    
     <!-- Preload fonts for performance -->
     <link rel="preload" href="/fonts/Fraunces[wght].woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Inter[weight].woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
     <div id="page-content">
