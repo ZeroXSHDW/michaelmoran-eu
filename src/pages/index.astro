@@ -7,30 +7,26 @@ import CredentialItem from '../components/CredentialItem.astro';
 import Testimonial from '../components/Testimonial.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
+import StructuredData from '../components/StructuredData.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import WritingCard from '../components/WritingCard.astro';
+import SpeakingCard from '../components/SpeakingCard.astro';
 
-import {
-  siteConfig,
-  hero,
-  profile,
-  capabilities,
-  engagements,
-  credentials,
-  testimonials,
-  contact,
-  footer,
-} from '../content';
+import content from '../content';
+const { siteConfig, hero, profile, capabilities, engagements, credentials, testimonials, caseStudies, writing, speaking, contact, footer } = content;
 ---
 
 <Layout title={siteConfig.title} description={siteConfig.description}>
+  <StructuredData />
+
   <!-- Hero Section -->
   <section id="hero" class="hero-section">
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-name">{hero.name}</h1>
         <p class="hero-title accent">{hero.title}</p>
-        <p class="hero-value-prop">{hero.valueProp}</p>
-        <p class="hero-credentials">{hero.credentials}</p>
-        <a href="#contact" class="hero-cta button-primary">Engage</a>
+        <p class="hero-value-prop">{hero.valueProposition}</p>
+        <a href="#engagements" class="hero-cta button-primary">{hero.ctaText || 'View Engagements'}</a>
       </div>
     </div>
   </section>
@@ -38,11 +34,13 @@ import {
   <!-- Profile Section -->
   <section id="profile">
     <div class="container">
-      <SectionHeader label={profile.headline} />
-      <article class="profile-content">
-        {profile.paragraphs.map((paragraph, index) => (
-          <p class="reveal" style={{ animationDelay: `${index * 100}ms` }}>{paragraph}</p>
-        ))}
+      <SectionHeader label="01 — Profile" />
+      <article class="profile-content reveal">
+        <p>{profile.body}</p>
+        <p class="profile-meta">
+          <span>📍 {profile.location}</span>
+          <span>💼 {profile.availability}</span>
+        </p>
       </article>
     </div>
   </section>
@@ -50,15 +48,19 @@ import {
   <!-- Capabilities Section -->
   <section id="capabilities">
     <div class="container">
-      <SectionHeader label={capabilities.headline} />
+      <SectionHeader label="02 — Capabilities" />
       <ul class="capabilities-grid">
-        {capabilities.items.map((item) => (
+        {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+        {capabilities.map((item) => (
           <CapabilityCard
-            id={item.id}
+            number={item.number}
             title={item.title}
             description={item.description}
+            icon={item.icon}
+            tags={item.tags}
           />
         ))}
+        {/* eslint-enable @typescript-eslint/no-unsafe-return */}
       </ul>
     </div>
   </section>
@@ -66,17 +68,20 @@ import {
   <!-- Selected Engagements Section -->
   <section id="engagements">
     <div class="container">
-      <SectionHeader label={engagements.headline} />
+      <SectionHeader label="03 — Selected Engagements" />
       <ul class="engagements-grid">
-        {engagements.items.map((item) => (
+        {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+        {engagements.map((item) => (
           <EngagementCard
-            id={item.id}
-            year={item.year}
-            sector={item.sector}
+            sector={item.organization}
             role={item.role}
-            outcome={item.outcome}
+            outcome={item.description}
+            year={item.period}
+            achievements={item.achievements}
+            technologies={item.technologies}
           />
         ))}
+        {/* eslint-enable @typescript-eslint/no-unsafe-return */}
       </ul>
     </div>
   </section>
@@ -84,16 +89,18 @@ import {
   <!-- Credentials Section -->
   <section id="credentials">
     <div class="container">
-      <SectionHeader label={credentials.headline} />
+      <SectionHeader label="04 — Credentials" />
       <ul class="credentials-list">
-        {credentials.items.map((cred) => (
+        {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+        {credentials.map((cred) => (
           <CredentialItem
             name={cred.name}
             issuer={cred.issuer}
-            year={cred.year}
+            year={cred.date}
             verificationUrl={cred.verificationUrl}
           />
         ))}
+        {/* eslint-enable @typescript-eslint/no-unsafe-return */}
       </ul>
     </div>
   </section>
@@ -101,202 +108,300 @@ import {
   <!-- Testimonials Section -->
   <section id="testimonials">
     <div class="container">
-      <SectionHeader label={testimonials.headline} />
-      <blockquote class="testimonials-carousel">
-        {testimonials.items.map((testimonial) => (
+      <SectionHeader label="05 — Testimonials" />
+      <ul class="testimonials-grid">
+        {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+        {testimonials.map((t) => (
           <Testimonial
-            quote={testimonial.quote}
-            attribution={testimonial.attribution}
+            quote={t.quote}
+            author={t.author}
+            role={t.role}
+            organization={t.organization}
+            linkedIn={t.linkedIn}
           />
         ))}
-      </blockquote>
+        {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+      </ul>
     </div>
   </section>
+
+  <!-- Case Studies Section -->
+  {caseStudies && caseStudies.length > 0 && (
+    <section id="case-studies">
+      <div class="container">
+        <SectionHeader label="06 — Case Studies" />
+        <ul class="case-studies-grid">
+          {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+          {caseStudies.map((item) => (
+            <CaseStudyCard
+              title={item.title}
+              client={item.client}
+              sector={item.sector}
+              period={item.period}
+              challenge={item.challenge}
+              approach={item.approach}
+              outcome={item.outcome}
+              metrics={item.metrics}
+              tags={item.tags}
+              confidentiality={item.confidentiality}
+              link={item.link}
+              featured={item.featured}
+            />
+          ))}
+          {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- Writing Section -->
+  {writing && writing.length > 0 && (
+    <section id="writing">
+      <div class="container">
+        <SectionHeader label="07 — Writing" />
+        <ul class="writing-grid">
+          {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+          {writing.map((item) => (
+            <WritingCard
+              title={item.title}
+              slug={item.slug}
+              type={item.type}
+              summary={item.summary}
+              publishedDate={item.publishedDate}
+              tags={item.tags}
+              link={item.link}
+              pdfUrl={item.pdfUrl}
+              readingTimeMinutes={item.readingTimeMinutes}
+              featured={item.featured}
+            />
+          ))}
+          {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- Speaking Section -->
+  {speaking && speaking.length > 0 && (
+    <section id="speaking">
+      <div class="container">
+        <SectionHeader label="08 — Speaking" />
+        <ul class="speaking-grid">
+          {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+          {speaking.map((item) => (
+            <SpeakingCard
+              title={item.title}
+              event={item.event}
+              eventUrl={item.eventUrl}
+              date={item.date}
+              location={item.location}
+              type={item.type}
+              audience={item.audience}
+              slidesUrl={item.slidesUrl}
+              videoUrl={item.videoUrl}
+              tags={item.tags}
+              featured={item.featured}
+            />
+          ))}
+          {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+        </ul>
+      </div>
+    </section>
+  )}
 
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
-      <SectionHeader label={contact.headline} />
-      <div class="contact-layout">
-        <ContactForm
-          action={contact.form.action}
-          method={contact.form.method}
-        />
-        <div class="contact-sidebar">
-          <h3 class="contact-heading">Contact</h3>
-          <p class="contact-method">
-            <a href={`mailto:contact@${siteConfig.url.replace('https://', '')}`} class="contact-link">Email</a>
-          </p>
-          <p class="contact-method">
-            <a href={contact.linkedin.url} class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
-          </p>
-          <p class="contact-method">
-            <a href={contact.keybase.url} class="contact-link" target="_blank" rel="noopener">Keybase</a>
-          </p>
-          <div class="contact-pgp">
-            <h4 class="pgp-heading">PGP Fingerprint</h4>
-            <p class="pgp-placeholder">
-              <!-- TODO(owner): Add actual PGP fingerprint here -->
-              <span class="placeholder-text">[PGP FINGERPRINT PENDING]</span>
-            </p>
-          </div>
-        </div>
-      </div>
+      <SectionHeader label="09 — Engagement" />
+      <ContactForm
+        email={contact.email}
+        pgpFingerprint={contact.pgpFingerprint}
+        linkedIn={contact.linkedIn}
+        keybase={contact.keybase}
+        github={contact.github}
+        responseTime={contact.responseTime}
+        formEndpoint={contact.formEndpoint}
+      />
     </div>
   </section>
 
-  <!-- Footer -->
-  <Footer 
+  <Footer
     copyright={footer.copyright}
-    privacy={footer.privacy}
-    securityMark={footer.securityMark}
+    privacy={footer.privacyNote}
+    socialLinks={footer.socialLinks}
   />
 </Layout>
 
 <style>
-.hero-section {
-  padding: var(--space-6) var(--space-2);
-  display: flex;
-  align-items: center;
-  min-height: 60vh;
-}
-
-.hero-content {
-  text-align: center;
-  max-width: 48rem;
-  margin: 0 auto;
-}
-
-.hero-name {
-  font-family: 'Fraunces', serif;
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin: 0 0 var(--space-3) 0;
-  color: var(--color-text);
-}
-
-.hero-title {
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin: 0 0 var(--space-3) 0;
-  opacity: 0.8;
-}
-
-.hero-value-prop {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.4;
-  margin: 0 0 var(--space-3) 0;
-  color: var(--color-meta);
-}
-
-.hero-credentials {
-  font-size: 1rem;
-  color: var(--color-meta);
-  margin: 0 0 var(--space-4) 0;
-}
-
-.button-primary {
-  display: inline-block;
-  padding: var(--space-2) var(--space-4);
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  text-decoration: none;
-  border-radius: 4px;
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-weight: 600;
-  transition: opacity var(--duration-fast) ease;
-}
-
-.button-primary:hover,
-.button-primary:focus {
-  opacity: 0.9;
-}
-
-.profile-content .reveal:nth-child(1) { animation-delay: 0ms; }
-.profile-content .reveal:nth-child(2) { animation-delay: 100ms; }
-.profile-content .reveal:nth-child(3) { animation-delay: 200ms; }
-
-.credentials-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.engagements-grid {
-  display: grid;
-  gap: var(--space-4);
-}
-
-.contact-layout {
-  display: grid;
-  gap: var(--space-4);
-}
-
-.contact-heading {
-  font-family: 'Fraunces', serif;
-  font-size: 1.25rem;
-  margin: 0 0 var(--space-3) 0;
-}
-
-.contact-method {
-  margin: var(--space-2) 0;
-}
-
-.contact-link {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: text-decoration var(--duration-fast) ease;
-}
-
-.contact-link:hover,
-.contact-link:focus {
-  text-decoration: underline;
-}
-
-.contact-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.contact-pgp {
-  padding: var(--space-3);
-  background-color: var(--color-bg);
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-}
-
-.pgp-heading {
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin: 0 0 var(--space-1) 0;
-  color: var(--color-text);
-}
-
-.placeholder-text {
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-weight: 500;
-  color: var(--color-meta);
-  opacity: 0.7;
-}
-
-.testimonials-carousel {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-/* Mobile adjustments */
-@media (min-width: 48em) {
-  .contact-layout {
-    grid-template-columns: 1fr 320px;
-    align-items: flex-start;
+  /* Hero section - full viewport height on desktop, auto on mobile */
+  .hero-section {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-8) 0;
+    background-color: var(--color-bg);
   }
 
-  .engagements-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  @media (max-width: 48em) {
+    .hero-section {
+      min-height: auto;
+      padding: var(--space-6) 0;
+    }
   }
-}
+
+  /* Container width for this page only */
+  .container {
+    width: min(90%, 800px);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+
+  @media (max-width: 48em) {
+    .container {
+      width: min(95%, 800px);
+      padding: 0 var(--space-2);
+    }
+  }
+
+  .hero-content {
+    text-align: center;
+    padding: 0 var(--space-2);
+  }
+
+  .hero-name {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.75rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 var(--space-3) 0;
+    color: var(--color-text);
+  }
+
+  .hero-title {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+    font-weight: 500;
+    margin: 0 0 var(--space-4) 0;
+    color: var(--color-accent);
+  }
+
+  .hero-value-prop {
+    font-size: clamp(0.9rem, 1.8vw, 1.125rem);
+    line-height: 1.6;
+    color: var(--color-meta);
+    margin: 0 0 var(--space-6) 0;
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: var(--space-3) var(--space-5);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+  }
+
+  .hero-cta:hover,
+  .hero-cta:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .button-primary {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .profile-content {
+    max-width: 65ch;
+    margin: 0 auto;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .profile-content p {
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  .profile-meta {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.8125rem;
+    color: var(--color-meta);
+  }
+
+  @media (max-width: 48em) {
+    .profile-meta {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+
+  .capabilities-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .engagements-grid,
+  .credentials-list,
+  .testimonials-grid,
+  .case-studies-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .writing-grid,
+  .speaking-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 30em) {
+    .engagements-grid,
+    .credentials-list,
+    .testimonials-grid {
+      gap: var(--space-3);
+    }
+    
+    .case-studies-grid,
+    .writing-grid,
+    .speaking-grid {
+      gap: var(--space-3);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal 0.6s ease-out forwards;
+  }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>

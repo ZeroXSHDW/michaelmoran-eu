@@ -1,0 +1,43 @@
+{
+  "abstract": "Large Language Models (LLMs) are revolutionizing software development, but their integration introduces critical security vulnerabilities. This hands-on workshop exposes the dangerous world of prompt injection attacks, where malicious inputs can bypass AI safeguards and compromise system integrity. Participants will actively construct and execute real prompt injection exploits against vulnerable LLM applications, gaining visceral understanding of attack vectors. Through guided exercises, attendees will implement robust defense mechanisms including input sanitization, output filtering, and architectural controls. We'll explore advanced techniques like indirect prompt injection and jailbreaking, then deploy countermeasures using prompt engineering, system prompts, and runtime monitoring. By workshop conclusion, developers and security engineers will possess practical skills to identify, exploit, and defend against prompt injection in their own AI-powered applications. This session bridges the gap between theoretical AI security research and real-world implementation challenges, providing immediately applicable knowledge for securing next-generation software systems.",
+  "elevator_pitch": "Hands-on workshop exposing prompt injection vulnerabilities in LLM applications. Build real exploits, deploy defenses, and secure AI systems. Essential skills for developers and security engineers building next-gen applications.",
+  "learning_objectives": [
+    "Construct and execute prompt injection attacks against vulnerable LLM applications",
+    "Implement defensive controls including input sanitization and output filtering",
+    "Design secure AI system architectures resistant to prompt manipulation",
+    "Apply prompt engineering techniques to harden system prompts against exploitation"
+  ],
+  "target_audience": "Software developers, security engineers, and AI practitioners with 2+ years of experience building or securing applications that integrate Large Language Models or other AI systems.",
+  "prerequisites": "Basic understanding of REST APIs, web application architecture, and familiarity with Python or JavaScript. Experience with LLM APIs (OpenAI, Anthropic, etc.) recommended but not required.",
+  "outline": [
+    "0-5 min: Introduction to prompt injection threat landscape and real-world impact",
+    "5-15 min: Direct prompt injection attacks - constructing simple exploits",
+    "15-25 min: Hands-on lab - participants execute attacks against vulnerable demo app",
+    "25-35 min: Defense strategies - input sanitization and output filtering techniques",
+    "35-45 min: Advanced attacks - indirect injection and jailbreaking demonstrations",
+    "45-55 min: Architectural defenses and system prompt hardening",
+    "55-60 min: Q&A and key takeaways summary"
+  ],
+  "key_takeaways": [
+    "Recognize prompt injection attack patterns before they compromise your AI systems",
+    "Deploy practical defenses including input validation, output filtering, and prompt hardening",
+    "Architect LLM applications with security-first design principles",
+    "Test and validate AI security controls using real attack scenarios"
+  ],
+  "speaker_bio": "Michael Moran is a senior security researcher specializing in AI and machine learning security. With over 8 years of experience in application security, he focuses on emerging threats in generative AI systems. Michael has presented at major security conferences including Black Hat, RSA, and OWASP Global events. He leads AI security initiatives at a leading fintech company and regularly contributes to the OWASP AI Security Top 10 project. His expertise bridges cutting-edge research with practical implementation, making complex AI security concepts accessible to development teams.",
+  "previous_experience": "Presented 'AI Security Testing' at Black Hat Europe 2023. Delivered 'LLM Security Fundamentals' workshop at OWASP Global AppSec 2023. Regular speaker at OWASP chapter meetings across Europe. Authored 'Securing Generative AI Applications' whitepaper for OWASP Foundation. Featured expert in AI security podcast series with 50K+ downloads.",
+  "technical_requirements": {
+    "a_v_needs": "Projector (1920x1080), microphone, laptop connectivity, reliable WiFi",
+    "demo_requirements": "Pre-configured VMs or cloud instances for each participant, internet access, LLM API credits ($500 budget), sample vulnerable applications, attack demonstration environment",
+    "room_setup": "Theater-style seating with tables for laptop use, power outlets accessible"
+  },
+  "tags": [
+    "Prompt Injection",
+    "Workshop",
+    "OWASP",
+    "Hands-on",
+    "AI Security",
+    "LLM",
+    "Application Security"
+  ]
+}

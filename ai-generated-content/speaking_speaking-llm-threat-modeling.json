@@ -1,0 +1,76 @@
+{
+  "abstract": "Large Language Models are revolutionizing applications, but their unique attack surfaces demand new security approaches. This talk introduces threat modeling for LLM applications using MITRE ATLAS, the first framework specifically designed for AI security. We'll explore how traditional threat modeling falls short when applied to generative AI systems and demonstrate practical techniques for identifying and mitigating LLM-specific vulnerabilities. Through real-world case studies and live demonstrations, attendees will learn to map attack paths, identify data leakage risks, and model prompt injection threats. You'll walk away with actionable methodologies to integrate into your development lifecycle, ensuring your LLM applications are secure by design. Whether you're building chatbots, code assistants, or enterprise AI solutions, this session provides the essential security foundation for the AI era.",
+  "elevator_pitch": "Learn to threat model LLM applications using MITRE ATLAS framework. Practical security techniques for prompt injection, data leakage, and AI-specific vulnerabilities. Essential for developers building secure AI systems.",
+  "learning_objectives": [
+    "Map LLM application architectures to MITRE ATLAS attack patterns and tactics",
+    "Identify and mitigate prompt injection and jailbreaking vulnerabilities",
+    "Conduct threat modeling exercises for generative AI use cases",
+    "Implement security controls throughout the LLM application development lifecycle"
+  ],
+  "target_audience": "Software developers, security engineers, AI/ML practitioners, DevOps teams, and security architects working with or planning to implement LLM applications. Intermediate to advanced security knowledge required.",
+  "prerequisites": "Basic understanding of web application security concepts, familiarity with threat modeling principles, and working knowledge of LLM applications or AI systems. Attendees should understand concepts like prompt engineering and model APIs.",
+  "outline": [
+    {
+      "time": "0-5 min",
+      "content": "Introduction: Why LLM Security is Different",
+      "details": "Setting the stage with LLM adoption statistics and unique security challenges. Contrasting traditional vs AI-specific attack surfaces."
+    },
+    {
+      "time": "5-15 min",
+      "content": "MITRE ATLAS Framework Overview",
+      "details": "Deep dive into ATLAS structure, tactics, techniques, and procedures. How it differs from ATT&CK. Live navigation of the framework."
+    },
+    {
+      "time": "15-25 min",
+      "content": "Common LLM Attack Patterns",
+      "details": "Demonstration of prompt injection, jailbreaking, and data extraction attacks. Mapping these to ATLAS techniques with real examples."
+    },
+    {
+      "time": "25-40 min",
+      "content": "Hands-On Threat Modeling Exercise",
+      "details": "Step-by-step threat modeling of an LLM-powered chatbot. Identifying assets, attack vectors, and mitigation strategies using ATLAS."
+    },
+    {
+      "time": "40-50 min",
+      "content": "Mitigation Strategies and Best Practices",
+      "details": "Implementing security controls, prompt design patterns, and monitoring approaches. Integration with SDLC and DevSecOps pipelines."
+    },
+    {
+      "time": "50-55 min",
+      "content": "Q&A and Resources",
+      "details": "Audience questions, additional resources, and community engagement opportunities."
+    }
+  ],
+  "key_takeaways": [
+    "Practical threat modeling methodology specifically for LLM applications using MITRE ATLAS",
+    "Concrete techniques for preventing prompt injection and jailbreaking attacks",
+    "Framework for identifying data leakage and privacy risks in generative AI systems",
+    "Actionable security controls that can be implemented immediately in development workflows",
+    "Resources and community connections for ongoing AI security learning"
+  ],
+  "speaker_bio": "Michael Moran is a senior security researcher specializing in AI and machine learning security. With over 8 years of experience in threat modeling and application security, he focuses on developing practical security frameworks for emerging technologies. Michael is a contributor to MITRE ATLAS and regularly speaks at security conferences on AI security topics. He currently works at [Company], where he leads AI security initiatives and helps organizations build secure machine learning systems.",
+  "previous_experience": "Presented 'Threat Modeling Machine Learning Systems' at Black Hat USA 2023, 'AI Security Fundamentals' at RSA Conference 2024, and multiple sessions at OWASP chapters. Regular contributor to AI security research and MITRE ATLAS development. Background includes enterprise security consulting and academic research in adversarial machine learning.",
+  "technical_requirements": {
+    "audio_visual": [
+      "Projector and screen for slides",
+      "Wireless microphone for presenter",
+      "Laptop with HDMI output",
+      "Internet connectivity for live demos"
+    ],
+    "live_demo": {
+      "requirements": [
+        "Stable internet connection",
+        "Access to LLM API endpoints",
+        "Pre-configured demo environment",
+        "Backup offline demo materials"
+      ],
+      "safety": "All demonstrations will use safe, non-production data and include proper rate limiting"
+    }
+  },
+  "tags": [
+    "MITRE ATLAS",
+    "Threat Modeling",
+    "LLM Security",
+    "BSides"
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "homepage_hero": {
+    "h1": "AI Security Consultant | LLM Threat Modeling Expert | Cyber Security Professional",
+    "subheadline": "Specialized in protecting AI systems through advanced threat modeling, secure architecture design, and comprehensive incident response strategies. Based in Dublin, serving clients globally.",
+    "value_props": [
+      {
+        "title": "AI/ML Security Expertise",
+        "description": "Protect your artificial intelligence investments with specialized security consulting covering LLM threat modeling, prompt injection defense, and AI system hardening."
+      },
+      {
+        "title": "Strategic Security Architecture",
+        "description": "Design resilient cybersecurity frameworks with expert secure architecture review services that align with NIST AI RMF and ISO 42001 standards."
+      },
+      {
+        "title": "Incident Response & Training",
+        "description": "Rapid incident response consulting combined with hands-on training as a SANS SEC411 instructor and MITRE ATLAS threat modeling specialist."
+      }
+    ]
+  },
+  "about_page": {
+    "title": "About Michael Moran - Cyber Security Professional",
+    "content": "Michael Moran is a distinguished cyber security professional specializing in the rapidly evolving field of artificial intelligence security. With extensive expertise in AI/ML security, threat modeling, secure architecture, and incident response, Michael has established himself as a leading authority in protecting next-generation technology systems.\n\nHis current focus centers on LLM threat modeling and prompt injection defense, working directly with organizations to identify vulnerabilities in AI systems before they can be exploited. Michael's involvement with MITRE ATLAS demonstrates his commitment to advancing the field through practical threat research and defensive strategy development.\n\nAs a SANS SEC411 instructor, Michael has developed comprehensive materials that bridge traditional cyber security knowledge with emerging AI risks. His work on the SEC411 course materials has helped thousands of security professionals understand the unique challenges posed by machine learning systems.\n\nMichael holds multiple industry certifications including GSEC, GCIH, GPEN, AWS Security Specialty, NIST AI RMF, and ISO 42001. These credentials, combined with his hands-on consulting experience, enable him to deliver practical security solutions that meet both regulatory requirements and business objectives.\n\nBased in Dublin, Ireland, Michael provides consulting services worldwide, working with organizations across finance, healthcare, technology, and government sectors. His remote-first approach ensures clients receive world-class security expertise regardless of geographic location.\n\nThrough his consulting practice and speaking engagements, Michael continues to advance the field of AI security, helping organizations navigate the complex landscape of artificial intelligence risk management while maintaining operational excellence."
+  },
+  "services_page": {
+    "services": [
+      {
+        "title": "AI Security Consulting",
+        "description": "Comprehensive security assessment and protection strategies for artificial intelligence and machine learning systems. Includes LLM threat modeling, prompt injection defense, and AI system vulnerability analysis.",
+        "keywords": "AI security consultant, LLM threat modeling, prompt injection defense"
+      },
+      {
+        "title": "Secure Architecture Review",
+        "description": "Expert evaluation of your cybersecurity architecture to identify gaps and implement robust security controls aligned with industry best practices and compliance frameworks.",
+        "keywords": "secure architecture review, NIST AI RMF, ISO 42001"
+      },
+      {
+        "title": "Incident Response Consulting",
+        "description": "Rapid response and forensic analysis services for cyber security incidents, ensuring minimal business impact and comprehensive post-incident improvement recommendations.",
+        "keywords": "incident response consultant, cyber security incident response"
+      },
+      {
+        "title": "MITRE ATLAS Integration",
+        "description": "Specialized consulting services leveraging MITRE ATLAS framework for understanding and mitigating threats specific to artificial intelligence and machine learning systems.",
+        "keywords": "MITRE ATLAS, AI threat modeling, machine learning security"
+      },
+      {
+        "title": "SANS SEC411 Training & Materials Development",
+        "description": "Hands-on training delivery and curriculum development for cyber security professionals, with specialized focus on AI security concepts and practical implementation.",
+        "keywords": "SANS SEC411 instructor, cyber security training, security curriculum development"
+      },
+      {
+        "title": "NIST AI RMF Implementation",
+        "description": "Strategic guidance for implementing the NIST Artificial Intelligence Risk Management Framework within your organization's security governance structure.",
+        "keywords": "NIST AI RMF implementation, AI risk management, regulatory compliance"
+      }
+    ]
+  },
+  "case_studies_index": {
+    "intro": "Explore our comprehensive collection of cyber security case studies demonstrating real-world applications of advanced threat modeling, AI security consulting, and incident response expertise. Our projects span multiple industries including finance, healthcare, technology, and government, showcasing how strategic security consulting delivers measurable business value while protecting critical assets from evolving cyber threats.",
+    "keywords": "cyber security case studies, AI security consulting, threat modeling, incident response, MITRE ATLAS, secure architecture"
+  },
+  "speaking_page": {
+    "intro": "Michael Moran is an accomplished speaker and thought leader in cyber security, specializing in artificial intelligence security, threat modeling, and incident response. He regularly presents at industry conferences, corporate events, and educational institutions worldwide.",
+    "event_types": [
+      "Industry conferences and security summits",
+      "Corporate security workshops and training sessions",
+      "Academic institutions and research organizations",
+      "Government and regulatory body presentations",
+      "Virtual webinars and online security forums"
+    ],
+    "topics": [
+      "LLM Threat Modeling and Prompt Injection Defense",
+      "MITRE ATLAS Framework Implementation",
+      "NIST AI RMF Practical Application",
+      "Secure Architecture Design for AI Systems",
+      "Incident Response for Modern Cyber Threats"
+    ],
+    "keywords": "cyber security speaker, AI security conference, threat modeling presentation, incident response training, SANS SEC411 instructor"
+  },
+  "blog_index": {
+    "categories": [
+      {
+        "name": "AI Security Research",
+        "description": "In-depth analysis of emerging threats in artificial intelligence systems, including LLM vulnerabilities, prompt injection attacks, and defensive strategies.",
+        "keywords": "AI security, LLM security, prompt injection, machine learning threats"
+      },
+      {
+        "name": "Threat Modeling Insights",
+        "description": "Practical guidance on implementing threat modeling methodologies for complex systems, featuring case studies and real-world examples.",
+        "keywords": "threat modeling, MITRE ATLAS, attack surface analysis, security architecture"
+      },
+      {
+        "name": "Incident Response Strategies",
+        "description": "Best practices and lessons learned from cyber security incident response engagements across various industries and threat scenarios.",
+        "keywords": "incident response, cyber security incidents, forensic analysis, breach response"
+      },
+      {
+        "name": "Secure Architecture Principles",
+        "description": "Foundational concepts and advanced techniques for designing resilient cybersecurity architectures that protect against modern attack vectors.",
+        "keywords": "secure architecture, NIST AI RMF, ISO 42001, security design patterns"
+      },
+      {
+        "name": "Professional Development",
+        "description": "Career guidance, certification preparation, and skill development resources for cyber security professionals seeking specialization in AI security.",
+        "keywords": "cyber security career, SANS SEC411, security certifications, professional development"
+      }
+    ]
+  },
+  "meta_tags": {
+    "homepage": {
+      "title": "Michael Moran - AI Security Consultant | LLM Threat Modeling Expert",
+      "description": "Michael Moran is a cyber security professional specializing in AI/ML security, threat modeling, and incident response. Expert in MITRE ATLAS, prompt injection defense, and NIST AI RMF implementation. Based in Dublin, Ireland.",
+      "og_tags": {
+        "og_title": "Michael Moran - AI Security Consultant | LLM Threat Modeling Expert",
+        "og_description": "Specialized cyber security consulting for AI systems including LLM threat modeling, prompt injection defense, and secure architecture design. Based in Dublin, serving clients globally.",
+        "og_type": "website"
+      }
+    },
+    "about": {
+      "title": "About Michael Moran - Cyber Security Professional & AI Security Expert",
+      "description": "Learn about Michael Moran's expertise in AI security consulting, threat modeling, and incident response. SANS SEC411 instructor with certifications in GSEC, GCIH, GPEN, and NIST AI RMF.",
+      "og_tags": {
+        "og_title": "About Michael Moran - Cyber Security Professional",
+        "og_description": "Meet Michael Moran, AI security consultant specializing in LLM threat modeling, prompt injection defense, and secure architecture review. Dublin-based cyber security expert.",
+        "og_type": "profile"
+      }
+    },
+    "services": {
+      "title": "Cyber Security Services - AI Security Consulting & Incident Response",
+      "description": "Professional cyber security services including AI security consulting, secure architecture review, incident response, and MITRE ATLAS integration. Expert services from certified security professional.",
+      "og_tags": {
+        "og_title": "Cyber Security Services - AI Security Consulting",
+        "og_description": "Comprehensive cyber security services including AI/ML security, threat modeling, secure architecture review, and incident response consulting. Based in Dublin, Ireland.",
+        "og_type": "article"
+      }
+    },
+    "case_studies": {
+      "title": "Cyber Security Case Studies - AI Security & Threat Modeling Projects",
+      "description": "Real-world case studies demonstrating AI security consulting, threat modeling, and incident response expertise. Examples of successful secure architecture implementations and MITRE ATLAS integration.",
+      "og_tags": {
+        "og_title": "Cyber Security Case Studies",
+        "og_description": "Explore our cyber security case studies showcasing AI security consulting, threat modeling, and incident response success stories across multiple industries.",
+        "og_type": "article"
+      }
+    },
+    "speaking": {
+      "title": "Michael Moran - Cyber Security Speaker & SANS SEC411 Instructor",
+      "description": "Book Michael Moran for speaking engagements on AI security, threat modeling, and incident response. SANS SEC411 instructor and MITRE ATLAS expert available for conferences and corporate events.",
+      "og_tags": {
+        "og_title": "Cyber Security Speaking Engagements",
+        "og_description": "Michael Moran speaks on AI security, threat modeling, and incident response at conferences and corporate events. SANS SEC411 instructor and MITRE ATLAS specialist available.",
+        "og_type": "article"
+      }
+    },
+    "blog": {
+      "title": "Cyber Security Blog - AI Security Research & Threat Modeling",
+      "description": "Latest insights in AI security, threat modeling, incident response, and secure architecture. Articles covering MITRE ATLAS, NIST AI RMF, and SANS SEC411 topics.",
+      "og_tags": {
+        "og_title": "Cyber Security Blog - AI Security Research",
+        "og_description": "Read the latest cyber security blog posts covering AI security research, threat modeling insights, incident response strategies, and secure architecture principles.",
+        "og_type": "article"
+      }
+    }
+  },
+  "schema_org": {
+    "person": {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Michael Moran",
+      "jobTitle": "Cyber Security Professional",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Michael Moran Consulting"
+      },
+      "url": "https://michaelmoran.eu",
+      "sameAs": [
+        "https://linkedin.com/in/michaelmoran",
+        "https://twitter.com/michaelmoran"
+      ],
+      "knowsAbout": [
+        "AI Security",
+        "Machine Learning Security",
+        "Threat Modeling",
+        "Secure Architecture",
+        "Incident Response",
+        "LLM Security",
+        "Prompt Injection Defense",
+        "MITRE ATLAS",
+        "NIST AI RMF",
+        "ISO 42001"
+      ],
+      "knowsLanguage": [
+        "English"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dublin",
+        "addressCountry": "IE"
+      }
+    },
+    "professional_service": {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Michael Moran Cyber Security Consulting",
+      "description": "Specialized cyber security consulting services focusing on AI/ML security, threat modeling, secure architecture, and incident response.",
+      "serviceType": [
+        "AI Security Consulting",
+        "LLM Threat Modeling",
+        "Prompt Injection Defense",
+        "Secure Architecture Review",
+        "Incident Response Consulting",
+        "MITRE ATLAS Integration",
+        "SANS SEC411 Training",
+        "NIST AI RMF Implementation"
+      ],
+      "provider": {
+        "@type": "Person",
+        "name": "Michael Moran"
+      },
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cyber Security Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Security Consulting"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Secure Architecture Review"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Incident Response Consulting"
+            }
+          }
+        ]
+      }
+    },
+    "website": {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Michael Moran - AI Security Consultant",
+      "url": "https://michaelmoran.eu",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://michaelmoran.eu/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  }
+}

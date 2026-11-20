@@ -16,47 +16,80 @@ const { quote, attribution } = Astro.props;
 </blockquote>
 
 <style>
-.testimonial {
-  position: relative;
-  padding: var(--space-4);
-  margin: var(--space-4) 0;
-  background-color: var(--color-white);
-  border-left: 4px solid var(--color-accent);
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
-  list-style: none;
-  overflow: hidden;
-}
+  .testimonial {
+    position: relative;
+    padding: var(--space-4);
+    margin: var(--space-4) 0;
+    background-color: var(--color-white);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    list-style: none;
+    overflow: hidden;
+  }
 
-.testimonial-quote {
-  position: absolute;
-  top: var(--space-2);
-  left: var(--space-2);
-  color: var(--color-border);
-  opacity: 0.1;
-  width: 32px;
-  height: 32px;
-}
+  @media (max-width: 48em) {
+    .testimonial {
+      margin: var(--space-3) 0;
+      padding: var(--space-3);
+    }
+  }
 
-.testimonial-quote-text {
-  margin: 0;
-  font-size: 1.125rem;
-  line-height: 1.7;
-  color: var(--color-text);
-}
+  @media (max-width: 30em) {
+    .testimonial {
+      margin: var(--space-2) 0;
+      padding: var(--space-2);
+    }
+  }
 
-.testimonial-attribution {
-  display: block;
-  margin-top: var(--space-2);
-  text-align: right;
-  font-style: normal;
-}
+  .testimonial-quote {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+    color: var(--color-border);
+    opacity: 0.1;
+    width: 28px;
+    height: 28px;
+  }
 
-.testimonial-author {
-  display: block;
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-weight: 500;
-  font-size: 0.85rem;
-  color: var(--color-meta);
-}
+  @media (max-width: 48em) {
+    .testimonial-quote {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .testimonial-quote-text {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 48em) {
+    .testimonial-quote-text {
+      font-size: 1rem;
+    }
+  }
+
+  .testimonial-attribution {
+    display: block;
+    margin-top: var(--space-2);
+    text-align: right;
+    font-style: normal;
+  }
+
+  .testimonial-author {
+    display: block;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--color-meta);
+  }
+
+  @media (max-width: 48em) {
+    .testimonial-author {
+      font-size: 0.8rem;
+    }
+  }
 </style>

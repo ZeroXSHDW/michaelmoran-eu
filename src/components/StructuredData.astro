@@ -1,0 +1,38 @@
+---
+import { content } from '../content';
+const { siteConfig, hero, profile } = content;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": hero.name,
+  "jobTitle": hero.title,
+  "description": profile.body,
+  "url": siteConfig.url,
+  "image": siteConfig.ogImage,
+  "sameAs": [
+    siteConfig.linkedInUrl,
+    siteConfig.githubUrl,
+    siteConfig.keybaseUrl,
+  ].filter(Boolean),
+  "knowsAbout": [
+    "AI Security",
+    "LLM Security",
+    "Threat Modeling",
+    "Incident Response",
+    "DevSecOps",
+    "NIST AI RMF",
+    "ISO 42001",
+    "SANS SEC411",
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "ZeroDev LLC",
+    "url": "https://zerodevllc.eu",
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "SANS Institute",
+  },
+}, null, 2)} />

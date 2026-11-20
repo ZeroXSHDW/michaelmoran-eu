@@ -1,0 +1,214 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  type: 'blog' | 'whitepaper' | 'research' | 'book' | 'guide' | 'article';
+  summary: string;
+  publishedDate: string;
+  tags?: string[];
+  link?: string;
+  pdfUrl?: string;
+  readingTimeMinutes?: number;
+  featured?: boolean;
+}
+const { title, slug: _slug, type, summary, publishedDate, tags, link, pdfUrl, readingTimeMinutes, featured: _featured } = Astro.props;
+
+const typeLabels = {
+  blog: 'Blog Post',
+  whitepaper: 'Whitepaper',
+  research: 'Research',
+  book: 'Book',
+  guide: 'Guide',
+  article: 'Article',
+};
+---
+
+<article class="writing-card reveal {featured ? 'featured' : ''}">
+  <header class="writing-header">
+    <span class="writing-type">{typeLabels[type]}</span>
+    <time class="writing-date" datetime={publishedDate}>{new Date(publishedDate).getFullYear()}</time>
+  </header>
+  
+  <h3 class="writing-title">{title}</h3>
+  <p class="writing-summary">{summary}</p>
+  
+  <div class="writing-meta">
+    {readingTimeMinutes && (
+      <span class="reading-time">📖 {readingTimeMinutes} min read</span>
+    )}
+    {tags && tags.length > 0 && (
+      <div class="writing-tags">
+        {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+        {tags.map(tag => <span class="tag">{tag}</span>)}
+        {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+      </div>
+    )}
+  </div>
+  
+  <div class="writing-links">
+    {link && (
+      <a href={link} class="writing-link" target="_blank" rel="noopener noreferrer">
+        Read Online →
+      </a>
+    )}
+    {pdfUrl && (
+      <a href={pdfUrl} class="writing-link pdf" target="_blank" rel="noopener noreferrer">
+        Download PDF ↓
+      </a>
+    )}
+  </div>
+</article>
+
+<style>
+  .writing-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-6);
+    background-color: var(--color-card);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+  }
+
+  @media (max-width: 48em) {
+    .writing-card {
+      padding: var(--space-4);
+    }
+  }
+
+  .writing-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .writing-card.featured {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 1px var(--color-accent);
+  }
+
+  .writing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+  }
+
+  .writing-type {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 4px;
+    background-color: rgba(10, 30, 79, 0.1);
+  }
+
+  .writing-date {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.75rem;
+    color: var(--color-meta);
+  }
+
+  .writing-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-2) 0;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 48em) {
+    .writing-title {
+      font-size: 1rem;
+    }
+  }
+
+  .writing-summary {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  @media (max-width: 48em) {
+    .writing-summary {
+      font-size: 0.875rem;
+    }
+  }
+
+  .writing-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.75rem;
+    color: var(--color-meta);
+  }
+
+  .writing-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tag {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.6875rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: var(--color-bg);
+    color: var(--color-meta);
+    border: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 48em) {
+    .tag {
+      font-size: 0.625rem;
+      padding: 2px 6px;
+    }
+  }
+
+  .writing-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: auto;
+  }
+
+  @media (max-width: 48em) {
+    .writing-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .writing-link {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-4);
+    border-radius: 4px;
+    border: 1px solid var(--color-accent);
+    transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
+  }
+
+  .writing-link:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .writing-link.pdf {
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .writing-link.pdf:hover {
+    background-color: var(--color-bg);
+    border-color: var(--color-accent);
+  }
+</style>

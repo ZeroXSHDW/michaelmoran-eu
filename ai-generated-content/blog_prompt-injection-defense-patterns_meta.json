@@ -1,0 +1,14 @@
+{
+  "title": "Prompt Injection Defense Patterns: A Practitioner's Guide",
+  "slug": "prompt-injection-defense-patterns",
+  "type": "guide",
+  "tags": [
+    "Prompt Injection",
+    "Defense",
+    "Python",
+    "SEC411"
+  ],
+  "publishedDate": "2024",
+  "readingTimeMinutes": 30,
+  "featured": false
+}

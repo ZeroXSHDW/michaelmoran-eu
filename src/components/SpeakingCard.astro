@@ -1,0 +1,249 @@
+---
+interface Props {
+  title: string;
+  event: string;
+  eventUrl?: string;
+  date: string;
+  location?: string;
+  type: 'keynote' | 'talk' | 'workshop' | 'panel' | 'training' | 'podcast';
+  audience?: string;
+  slidesUrl?: string;
+  videoUrl?: string;
+  tags?: string[];
+  featured?: boolean;
+}
+const { title, event, eventUrl, date, location, type, audience, slidesUrl, videoUrl, tags, featured: _featured } = Astro.props;
+
+const typeLabels = {
+  keynote: 'Keynote',
+  talk: 'Talk',
+  workshop: 'Workshop',
+  panel: 'Panel',
+  training: 'Training',
+  podcast: 'Podcast',
+};
+---
+
+<article class="speaking-card reveal {featured ? 'featured' : ''}">
+  <header class="speaking-header">
+    <span class="speaking-type">{typeLabels[type]}</span>
+    <time class="speaking-date" datetime={date}>{new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</time>
+  </header>
+  
+  <h3 class="speaking-title">{title}</h3>
+  
+  <div class="speaking-event">
+    {eventUrl ? (
+      <a href={eventUrl} target="_blank" rel="noopener noreferrer" class="event-link">{event}</a>
+    ) : (
+      <span class="event-name">{event}</span>
+    )}
+    {location && <span class="event-location">📍 {location}</span>}
+  </div>
+  
+  {audience && (
+    <p class="speaking-audience">Audience: {audience}</p>
+  )}
+  
+  {tags && tags.length > 0 && (
+    <div class="speaking-tags">
+      {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+      {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+    </div>
+  )}
+  
+  <div class="speaking-links">
+    {slidesUrl && (
+      <a href={slidesUrl} class="speaking-link" target="_blank" rel="noopener noreferrer">
+        📊 Slides
+      </a>
+    )}
+    {videoUrl && (
+      <a href={videoUrl} class="speaking-link" target="_blank" rel="noopener noreferrer">
+        ▶️ Video
+      </a>
+    )}
+  </div>
+</article>
+
+<style>
+  .speaking-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-6);
+    background-color: var(--color-card);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+  }
+
+  @media (max-width: 48em) {
+    .speaking-card {
+      padding: var(--space-4);
+    }
+  }
+
+  .speaking-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .speaking-card.featured {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 1px var(--color-accent);
+  }
+
+  .speaking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+  }
+
+  .speaking-type {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 4px;
+    background-color: rgba(10, 30, 79, 0.1);
+  }
+
+  .speaking-date {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.75rem;
+    color: var(--color-meta);
+  }
+
+  .speaking-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-2) 0;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 48em) {
+    .speaking-title {
+      font-size: 1rem;
+    }
+  }
+
+  .speaking-event {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+
+  @media (max-width: 48em) {
+    .speaking-event {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
+    }
+  }
+
+  .event-link {
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--duration-fast) ease;
+  }
+
+  .event-link:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+
+  .event-name {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .event-location {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.75rem;
+    color: var(--color-meta);
+  }
+
+  .speaking-audience {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.75rem;
+    color: var(--color-meta);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  @media (max-width: 48em) {
+    .speaking-audience {
+      font-size: 0.7rem;
+    }
+  }
+
+  .speaking-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  @media (max-width: 48em) {
+    .speaking-tags {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .tag {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.6875rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: var(--color-bg);
+    color: var(--color-meta);
+    border: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 48em) {
+    .tag {
+      font-size: 0.625rem;
+      padding: 2px 6px;
+    }
+  }
+
+  .speaking-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: auto;
+  }
+
+  @media (max-width: 48em) {
+    .speaking-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .speaking-link {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-4);
+    border-radius: 4px;
+    border: 1px solid var(--color-accent);
+    transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
+  }
+
+  .speaking-link:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+</style>

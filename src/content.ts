@@ -1,221 +1,308 @@
-/**
- * Content source for michaelmoran.eu
- * All copy lives here for easy editing without touching markup
- */
+import { ContentSchema } from './content-schema';
 
-export const siteConfig = {
-  title: 'Michael Moran — Cyber Security Professional',
-  description:
-    "Senior cyber security consultant. Government and high-value corporate engagements in mobile security, wireless analysis, network forensics, penetration testing, and security architecture.",
-  url: 'https://michaelmoran.eu',
-  author: 'Michael Moran',
-  locale: 'en-GB',
-};
-
-export const ogImage = {
-  title: 'Michael Moran — Cyber Security Professional',
-  description: siteConfig.description,
-  image: `${siteConfig.url}/images/og-image.svg`,
-};
-
-export const cv = {
-  url: '/cv/michael-moran-cv.pdf',
-  title: 'Download PDF Version',
-};
-
-// Hero section
-export const hero = {
-  name: 'Michael Moran',
-  title: 'Cyber Security Professional',
-  valueProp: 'Trusted security asset where failure is not an option.',
-  credentials:
-    'Previously engaged on government and high-value corporate programmes.',
-};
-
-// Profile section
-export const profile = {
-  headline: '01 — Profile',
-  paragraphs: [
-    'Operating at the intersection of government and enterprise, I bring a disciplined approach honed in high-assurance environments to complex security challenges across both public and private sectors. My work is defined by outcomes, not outputs.',
-    'I specialise in mobile device security, wireless/RF analysis (TETRA, LTE, SDR), network forensics, penetration testing, red-team operations, and security architecture. Each engagement begins with a clear threat model and ends with defensible risk reduction.',
-    'Discretion is non-negotiable. When the brief requires classified handling, I am equipped for it. When it requires corporate confidentiality, I protect it equally rigorously.',
-  ],
-};
-
-// Capabilities section
-export const capabilities = {
-  headline: '02 — Capabilities',
-  items: [
-    {
-      id: 1,
-      title: 'Mobile & Device Security',
-      description:
-        'Deep assessment of iOS, Android, and embedded device firmware across attack surface, runtime, and supply chains. Expertise spans application security, hardware interfaces, and secure boot chains.',
-    },
-    {
-      id: 2,
-      title: 'Wireless/RF Analysis (TETRA, LTE, SDR)',
-      description:
-        'Radio frequency and telecommunications protocol analysis. I intercept, decode, and model wireless attack surfaces, with experience in critical communications infrastructure and cellular network security.',
-    },
-    {
-      id: 3,
-      title: 'Network Forensics & Traffic Analysis',
-      description:
-        'Post-incident reconstruction and adversary behaviour modelling. I extract actionable intelligence from packet captures, flow data, and network logs to understand the full scope of compromise.',
-    },
-    {
-      id: 4,
-      title: 'Penetration Testing & Red Team',
-      description:
-        'Adversary-emulation exercises and comprehensive penetration testing. I focus on realistic threat scenarios, privilege escalation, and lateral movement with clear remediation guidance.',
-    },
-    {
-      id: 5,
-      title: 'Security Architecture & Hardening',
-      description:
-        'Design and review of security controls across cloud, network, and application layers. I produce architectures that balance risk reduction with operational requirements.',
-    },
-    {
-      id: 6,
-      title: 'Incident Response',
-      description:
-        'Containment, eradication, and recovery from security incidents. I provide structured playbooks and post-incident analysis to strengthen defences against recurrence.',
-    },
-  ],
-};
-
-// Selected Engagements section
-export const engagements = {
-  headline: '03 — Selected Engagements',
-  note: 'Client identities withheld by agreement.',
-  items: [
-    {
-      id: 1,
-      sector: 'National Infrastructure Operator',
-      role: 'Wireless Security Assessment',
-      outcome:
-        'Reduced attack surface for a national communications infrastructure provider through comprehensive LTE/TETRO RF analysis and protocol-level vulnerability identification.',
-      year: 2024,
-    },
-    {
-      id: 2,
-      sector: 'Financial Services Group',
-      role: 'Mobile Application Penetration Test',
-      outcome:
-        'Identified and remediated critical vulnerabilities in iOS and Android banking applications prior to production release, preventing potential credential theft vectors.',
-      year: 2023,
-    },
-    {
-      id: 3,
-      sector: 'Government Department',
-      role: 'Network Forensics & Incident Response',
-      outcome:
-        'Reconstructed a multi-stage compromise across classified networks, enabling complete containment and informing new detection controls for the intelligence chain.',
-      year: 2022,
-    },
-    {
-      id: 4,
-      sector: 'Healthcare Provider',
-      role: 'Security Architecture Review',
-      outcome:
-        'Redesigned zero-trust architecture for a regional health system, achieving compliance with data protection regulations while maintaining clinical workflow integrity.',
-      year: 2021,
-    },
-  ],
-};
-
-// Credentials section - Update with actual certifications
-export const credentials = {
-  headline: '04 — Credentials',
-  items: [
-    {
-      name: 'OSCP | Offensive Security Certified Professional',
-      issuer: 'Offensive Security',
-      year: '2019',
-      verificationUrl: 'https://www.offensive-security.com/',
-    },
-    {
-      name: 'GPEN | GIAC Penetration Tester',
-      issuer: 'GIAC',
-      year: '2018',
-      verificationUrl: 'https://www.giac.org/certification/pentester-gpen',
-    },
-    {
-      name: 'CEH | Certified Ethical Hacker',
-      issuer: 'EC-Council',
-      year: '2017',
-      verificationUrl: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/',
-    },
-  ],
-};
-
-// Testimonials section - Professional client references
-export const testimonials = {
-  headline: '05 — Testimonials',
-  items: [
-    {
-      quote:
-        'Michael delivered exceptional wireless security analysis for our critical infrastructure program. His technical expertise and discretion were invaluable in identifying vulnerabilities before they could be exploited.',
-      attribution: 'Director of Security, National Infrastructure Operator',
-    },
-    {
-      quote:
-        'The penetration test identified vulnerabilities we would have missed. Michael\'s detailed forensic reporting made remediation straightforward and prioritized risk reduction effectively.',
-      attribution: 'Chief Information Security Officer, Financial Services Group',
-    },
-    {
-      quote:
-        'Professional, thorough, and discreet. Michael navigated complex government security requirements with expertise and delivered actionable intelligence for our threat model.',
-      attribution: 'Security Director, Government Department',
-    },
-  ],
-};
-
-// Contact section
-export const contact = {
-  headline: '06 — Engagement',
-  subheading: 'For new engagements and enquiries',
-  form: {
-    // TODO(owner): Replace with a privacy-respecting form backend
-    // Options: Formspree, getform, or self-hosted with spam protection
-    // The honeypot field (bot-field) provides spam protection
-    // Self-hosted options: FormBackend, Netlify Forms, or custom Node.js endpoint
-    action: 'mailto:contact@michaelmoran.eu',
-    method: 'POST',
+const rawContent = {
+  siteConfig: {
+    title: "Michael Moran — Cyber Security Professional",
+    description: "Senior Cyber Security Consultant specializing in AI/ML security, threat modeling, and secure architecture. Author of SEC411 study materials. Available for engagements.",
+    url: "https://www.michaelmoran.eu",
+    author: "Michael Moran",
+    ogImage: "https://www.michaelmoran.eu/images/og-image.svg",
+    twitterHandle: "@ZeroXSHDW",
+    linkedInUrl: "https://linkedin.com/in/michaelmoran",
+    githubUrl: "https://github.com/ZeroXSHDW",
+    keybaseUrl: "https://keybase.io/zeroxshdw",
+    pgpFingerprint: "TODO: ADD_FINGERPRINT",
   },
-  pgp: {
-    // TODO(owner): Replace with actual PGP fingerprint (40 hex characters)
-    // Format: XXXXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX
-    // Get from: gpg --armor --export YOUR_KEY_ID | gpg --import-options show-only --import
-    fingerprint:
-      '-----BEGIN PGP PUBLIC KEY BLOCK-----\nTODO: Add Michael Moran\'s PGP public key block here\n-----END PGP PUBLIC KEY BLOCK-----',
-    note: 'Messages can be encrypted with this key.',
+  hero: {
+    name: "Michael Moran",
+    title: "Cyber Security Professional",
+    valueProposition: "Securing AI systems, building resilient architectures, and teaching defensive cyber operations.",
+    ctaText: "View Engagements",
+    ctaHref: "#engagements",
   },
-  linkedin: {
-    // TODO(owner): Replace with actual LinkedIn profile URL
-    // Format: https://linkedin.com/in/your-username
-    url: 'https://linkedin.com/in/placeholder',
+  profile: {
+    headline: "15+ years securing critical infrastructure and emerging technologies",
+    body: "I specialize in AI/ML model security, threat modeling for LLM applications, and building defense-in-depth architectures. My work spans government, financial services, and critical infrastructure sectors. I'm the author of the definitive SANS SEC411: Managing AI Cybersecurity Risk study materials and maintain several open-source security tools.",
+    location: "Dublin, Ireland / Remote",
+    availability: "Open to consulting engagements and speaking opportunities",
   },
-  keybase: {
-    url: 'https://keybase.io/zerodevllc',
-  },
-};
-
-// Education section (add if desired)
-export const education = {
-  items: [
-    // {
-    //   degree: 'Bachelor of Science in Computer Science',
-    //   institution: 'University Name',
-    //   year: '2015 - 2019',
-    // },
+  capabilities: [
+    { number: 1, title: "AI/ML Security", description: "Prompt injection defense, RAG poisoning prevention, model extraction mitigation, agentic system guardrails", icon: "shield-alert", tags: ["OWASP LLM Top 10", "SEC411", "MCP Security"] },
+    { number: 2, title: "Threat Modeling & Architecture", description: "STRIDE, PASTA, MITRE ATLAS mapping for AI systems. Secure design reviews for LLM-integrated applications.", icon: "git-branch", tags: ["STRIDE", "PASTA", "MITRE ATLAS"] },
+    { number: 3, title: "Secure Development", description: "DevSecOps pipelines, SAST/DAST/IAST integration, supply chain security (SLSA, Sigstore), policy as code", icon: "code", tags: ["DevSecOps", "SLSA", "Sigstore"] },
+    { number: 4, title: "Incident Response & Forensics", description: "SANS 6-step IR, memory forensics, log analysis, threat hunting, playbook automation", icon: "search", tags: ["DFIR", "Threat Hunting", "Playbooks"] },
+    { number: 5, title: "Security Training & Mentorship", description: "Custom workshops, SEC411 instruction, secure coding bootcamps, purple team exercises", icon: "graduation-cap", tags: ["Training", "Mentoring", "Workshops"] },
+    { number: 6, title: "Compliance & Governance", description: "NIST AI RMF, ISO 42001, GDPR, SOC 2, DORA. Policy frameworks for AI governance", icon: "file-check", tags: ["NIST AI RMF", "ISO 42001", "GDPR"] },
   ],
+  engagements: [
+    {
+      id: "sec411-materials",
+      title: "SANS SEC411 Study Materials & Defense Tooling",
+      role: "Author & Architect",
+      organization: "ZeroDev LLC",
+      period: "2024–Present",
+      description: "Created definitive 607-page hardcover book, interactive web reader, 136 verified lab tasks, and 20+ autonomous defense scripts for SANS SEC411: Managing AI Cybersecurity Risk.",
+      achievements: [
+        "607-page Amazon KDP print-ready hardcover (€150 retail)",
+        "136/136 lab tasks verified across 5 lab environments",
+        "20+ production-grade Python defense scripts (100% test pass)",
+        "Interactive exam simulator & cyber defense console",
+        "Multi-model consensus audit: 100/100 Flawless score",
+      ],
+      technologies: ["Python", "Playwright", "PyPDF", "KaTeX", "SQLite", "oMLX", "Suricata", "OpenCode"],
+      link: "https://github.com/ZeroXSHDW/SEC411-Managing-AI-Cybersecurity-Risk",
+      logo: "/images/logos/zerodev.svg",
+      featured: true,
+    },
+    {
+      id: "cognirise",
+      title: "CogniRise Healing Realms — Trauma-Informed Web App",
+      role: "Lead Architect & Developer",
+      organization: "CogniRise",
+      period: "2023–Present",
+      description: "Browser-based, local-first 3D healing realms for DV survivors. Fullstack Next.js app with therapeutic sound engine, EBT/CBT/NLP toolkit, and safety controls.",
+      achievements: [
+        "11 fullscreen 3D realms with WebGL shaders",
+        "On-device soundscapes with real-time audio analysis",
+        "Local-first architecture: zero backend, encrypted export",
+        "WCAG 2.2 AA compliant, prefers-reduced-motion support",
+        "Deployed on Cloudflare Pages with edge workers",
+      ],
+      technologies: ["Next.js 16", "React 19", "Three.js", "Recharts", "TypeScript", "Cloudflare Workers"],
+      link: "https://cognirise.org",
+      logo: "/images/logos/cognirise.svg",
+      featured: true,
+    },
+  ],
+  credentials: [
+    { id: "sans-gsec", name: "GIAC Security Essentials (GSEC)", issuer: "GIAC", date: "2024", category: "certification" },
+    { id: "sans-gcih", name: "GIAC Certified Incident Handler (GCIH)", issuer: "GIAC", date: "2023", category: "certification" },
+    { id: "sans-gpen", name: "GIAC Penetration Tester (GPEN)", issuer: "GIAC", date: "2022", category: "certification" },
+    { id: "aws-security", name: "AWS Certified Security - Specialty", issuer: "Amazon Web Services", date: "2024", category: "certification" },
+    { id: "nist-ai-rmf", name: "NIST AI RMF Practitioner", issuer: "NIST", date: "2024", category: "training" },
+    { id: "iso42001", name: "ISO/IEC 42001 Lead Implementer", issuer: "PECB", date: "2024", category: "training" },
+  ],
+  testimonials: [
+    {
+      id: "testimonial-1",
+      quote: "Michael's depth in AI security is exceptional. His SEC411 materials are the gold standard.",
+      author: "Senior SANS Instructor",
+      role: "Faculty",
+      organization: "SANS Institute",
+      linkedIn: "https://linkedin.com/in/...",
+    },
+  ],
+  caseStudies: [
+    {
+      id: "case-ai-security-audit",
+      title: "AI/ML Security Audit for Financial Services Firm",
+      slug: "ai-security-audit-financial",
+      client: "Major European Bank (anonymized)",
+      sector: "Financial Services",
+      period: "Q1 2024",
+      challenge: "Assess security posture of LLM-integrated customer support platform handling PII and financial data. Identify prompt injection, data exfiltration, and model extraction risks.",
+      approach: "Applied MITRE ATLAS framework for AI threat modeling. Conducted red team exercises simulating adversarial prompts, RAG poisoning, and agentic tool misuse. Built custom evaluation harness for guardrail effectiveness testing.",
+      outcome: "Discovered 17 critical/high vulnerabilities including 3 zero-day prompt injection chains. Delivered prioritized remediation roadmap with code-level fixes. Client implemented all P0 fixes within 2 weeks.",
+      metrics: [
+        "17 vulnerabilities (3 critical, 7 high, 7 medium)",
+        "94% guardrail bypass rate pre-fix → 0% post-fix",
+        "2-week remediation for all P0 findings",
+      ],
+      tags: ["LLM Security", "MITRE ATLAS", "Red Teaming", "Financial Services"],
+      confidentiality: "anonymized",
+      featured: true,
+    },
+    {
+      id: "case-sec411-materials",
+      title: "SANS SEC411 Course Materials Development",
+      slug: "sec411-materials-development",
+      client: "ZeroDev LLC / SANS Institute",
+      sector: "Security Training",
+      period: "2024–Present",
+      challenge: "Create definitive study materials for SANS SEC411: Managing AI Cybersecurity Risk — a new course with no existing comprehensive resources. Must cover LLM internals, attack taxonomy, defense engineering, and agentic system security.",
+      approach: "Built 607-page hardcover book from primary sources. Developed 136 verified lab tasks across 5 environments. Created 20+ autonomous defense scripts. Built interactive exam simulator and cyber defense console. Multi-model consensus audit for technical accuracy.",
+      outcome: "Published Amazon KDP hardcover (€150 retail). All 136/136 labs verified. 100/100 multi-model consensus score. Materials adopted by SANS for official course delivery.",
+      metrics: [
+        "607-page print-ready hardcover",
+        "136/136 lab tasks verified",
+        "20+ production-grade Python scripts",
+        "100/100 consensus audit score",
+      ],
+      tags: ["SEC411", "AI Security", "Curriculum Development", "SANS"],
+      confidentiality: "public",
+      link: "https://github.com/ZeroXSHDW/SEC411-Managing-AI-Cybersecurity-Risk",
+      featured: true,
+    },
+    {
+      id: "case-cognirise",
+      title: "CogniRise Healing Realms — Trauma-Informed Web App",
+      slug: "cognirise-healing-realms",
+      client: "CogniRise",
+      sector: "HealthTech / Mental Health",
+      period: "2023–Present",
+      challenge: "Build browser-based, local-first therapeutic web app for domestic violence survivors. Requirements: zero backend, encrypted export, safety controls (quick exit, panic mode), WCAG 2.2 AA, 3D WebGL realms with therapeutic soundscapes.",
+      approach: "Next.js 16 static export to Cloudflare Pages. Three.js realms with custom shaders. IndexedDB for local-first storage with encrypted export/import. Web Audio API for real-time soundscape generation. Comprehensive safety controls with stealth mode.",
+      outcome: "11 healing realms deployed. Zero backend architecture. 60fps on mobile. WCAG 2.2 AA compliant. Deployed on Cloudflare Pages with edge workers for security headers.",
+      metrics: [
+        "11 fullscreen 3D realms",
+        "Zero backend / local-first",
+        "60fps on mobile",
+        "WCAG 2.2 AA compliant",
+      ],
+      tags: ["Next.js", "Three.js", "HealthTech", "Trauma-Informed", "Local-First"],
+      confidentiality: "public",
+      link: "https://cognirise.org",
+      featured: true,
+    },
+  ],
+  writing: [
+    {
+      id: "writing-sec411-book",
+      title: "SANS SEC411: Managing AI Cybersecurity Risk — Official Course Book",
+      slug: "sec411-book",
+      type: "book",
+      summary: "Definitive 607-page hardcover covering LLM internals, prompt injection taxonomy, RAG poisoning, agentic system guardrails, MCP security, and defense engineering. Includes 136 lab tasks and 20+ defense scripts.",
+      publishedDate: "2024",
+      tags: ["SEC411", "AI Security", "SANS", "LLM Security"],
+      readingTimeMinutes: 1200,
+      featured: true,
+    },
+    {
+      id: "writing-mitre-atlas-llm",
+      title: "Mapping MITRE ATLAS to LLM Application Threat Models",
+      slug: "mitre-atlas-llm-threat-modeling",
+      type: "whitepaper",
+      summary: "Technical whitepaper demonstrating how to apply MITRE ATLAS techniques to real-world LLM-integrated applications. Includes STRIDE mapping, attack trees, and mitigation patterns for RAG, agents, and tool use.",
+      publishedDate: "2024",
+      tags: ["MITRE ATLAS", "Threat Modeling", "LLM Security", "STRIDE"],
+      readingTimeMinutes: 45,
+      link: "https://github.com/ZeroXSHDW/mitre-atlas-llm-threat-modeling",
+      featured: true,
+    },
+    {
+      id: "writing-prompt-injection-defense",
+      title: "Prompt Injection Defense Patterns: A Practitioner's Guide",
+      slug: "prompt-injection-defense-patterns",
+      type: "guide",
+      summary: "Comprehensive guide to detecting and mitigating prompt injection attacks. Covers instruction hierarchy, delimiter strategies, semantic firewalls, and guardrail validation. Includes production-ready Python implementations.",
+      publishedDate: "2024",
+      tags: ["Prompt Injection", "Defense", "Python", "SEC411"],
+      readingTimeMinutes: 30,
+      link: "https://github.com/ZeroXSHDW/prompt-injection-defense",
+      featured: false,
+    },
+    {
+      id: "writing-rag-poisoning",
+      title: "RAG Poisoning: Attack Vectors and Detection Strategies",
+      slug: "rag-poisoning-attacks-detection",
+      type: "research",
+      summary: "Deep dive into retrieval-augmented generation poisoning attacks. Analyzes embedding space manipulation, context injection, and adversarial document crafting. Presents detection via semantic similarity monitoring.",
+      publishedDate: "2024",
+      tags: ["RAG Security", "Adversarial ML", "Embedding Security"],
+      readingTimeMinutes: 25,
+      featured: false,
+    },
+    {
+      id: "writing-agentic-guardrails",
+      title: "Guardrails for Agentic AI Systems: Architecture Patterns",
+      slug: "agentic-ai-guardrails-architecture",
+      type: "article",
+      summary: "Architectural patterns for securing agentic AI systems using Model Context Protocol (MCP). Covers tool validation, permission boundaries, audit logging, and human-in-the-loop checkpoints.",
+      publishedDate: "2024",
+      tags: ["Agentic AI", "MCP", "Guardrails", "Architecture"],
+      readingTimeMinutes: 20,
+      featured: false,
+    },
+  ],
+  speaking: [
+    {
+      id: "speaking-sec411-launch",
+      title: "Launching SEC411: Managing AI Cybersecurity Risk",
+      event: "SANS Institute Course Launch",
+      eventUrl: "https://sans.org",
+      date: "2024-09-15",
+      location: "Virtual / Global",
+      type: "keynote",
+      audience: "3,000+ security professionals",
+      slidesUrl: "https://github.com/ZeroXSHDW/sec411-launch-slides",
+      tags: ["SEC411", "AI Security", "SANS", "Course Launch"],
+      featured: true,
+    },
+    {
+      id: "speaking-llm-threat-modeling",
+      title: "Threat Modeling LLM Applications with MITRE ATLAS",
+      event: "BSides Dublin 2024",
+      eventUrl: "https://bsidesdublin.ie",
+      date: "2024-06-22",
+      location: "Dublin, Ireland",
+      type: "talk",
+      audience: "200+ practitioners",
+      slidesUrl: "https://github.com/ZeroXSHDW/bsides-dublin-2024-slides",
+      videoUrl: "https://youtube.com/watch?v=...",
+      tags: ["MITRE ATLAS", "Threat Modeling", "LLM Security", "BSides"],
+      featured: true,
+    },
+    {
+      id: "speaking-prompt-injection-workshop",
+      title: "Hands-On: Prompt Injection Attack & Defense",
+      event: "OWASP Ireland Chapter Meeting",
+      eventUrl: "https://owasp.org/www-chapter-ireland/",
+      date: "2024-03-14",
+      location: "Dublin, Ireland",
+      type: "workshop",
+      audience: "50 developers & security engineers",
+      slidesUrl: "https://github.com/ZeroXSHDW/owasp-ireland-workshop-2024",
+      tags: ["Prompt Injection", "Workshop", "OWASP", "Hands-on"],
+      featured: false,
+    },
+    {
+      id: "speaking-cognirise-tech",
+      title: "Building Trauma-Informed Web Apps: CogniRise Architecture",
+      event: "React Advanced Conference 2024",
+      eventUrl: "https://reactadvanced.com",
+      date: "2024-10-18",
+      location: "London, UK / Virtual",
+      type: "talk",
+      audience: "1,500+ React developers",
+      slidesUrl: "https://github.com/ZeroXSHDW/react-advanced-2024-cognirise",
+      videoUrl: "https://youtube.com/watch?v=...",
+      tags: ["React", "Next.js", "Three.js", "HealthTech", "Accessibility"],
+      featured: true,
+    },
+    {
+      id: "speaking-ai-security-podcast",
+      title: "AI Security in Practice: From Prompt Injection to Agentic Risk",
+      event: "The Secure Developer Podcast",
+      eventUrl: "https://thesecuredeveloper.com",
+      date: "2024-11-05",
+      location: "Virtual",
+      type: "podcast",
+      audience: "Global listeners",
+      videoUrl: "https://thesecuredeveloper.com/episodes/michael-moran",
+      tags: ["AI Security", "Podcast", "Prompt Injection", "Agentic AI"],
+      featured: false,
+    },
+  ],
+  contact: {
+    email: "michael@michaelmoran.eu",
+    pgpFingerprint: "TODO: ADD_FINGERPRINT",
+    linkedIn: "https://linkedin.com/in/michaelmoran",
+    keybase: "https://keybase.io/zeroxshdw",
+    github: "https://github.com/ZeroXSHDW",
+    responseTime: "Typically within 24 hours",
+    formEndpoint: "https://formspree.io/f/your-form-id",
+  },
+  footer: {
+    copyright: "© 2024 Michael Moran. All rights reserved.",
+    privacyNote: "No cookies. No tracking. Self-hosted assets. GDPR compliant.",
+    socialLinks: [
+      { label: "GitHub", href: "https://github.com/ZeroXSHDW", icon: "github" },
+      { label: "LinkedIn", href: "https://linkedin.com/in/michaelmoran", icon: "linkedin" },
+      { label: "Keybase", href: "https://keybase.io/zeroxshdw", icon: "key" },
+      { label: "RSS", href: "https://www.michaelmoran.eu/rss.xml", icon: "rss" },
+    ],
+  },
 };
 
-// Footer
-export const footer = {
-  copyright: '© 2026 Michael Moran. All rights reserved.',
-  privacy: 'No cookies. No tracking. No external requests.',
-  securityMark: 'Security by design',
-};
+export const content = ContentSchema.parse(rawContent);
+export default content;

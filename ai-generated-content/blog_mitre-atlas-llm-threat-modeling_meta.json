@@ -1,0 +1,14 @@
+{
+  "title": "Mapping MITRE ATLAS to LLM Application Threat Models",
+  "slug": "mitre-atlas-llm-threat-modeling",
+  "type": "whitepaper",
+  "tags": [
+    "MITRE ATLAS",
+    "Threat Modeling",
+    "LLM Security",
+    "STRIDE"
+  ],
+  "publishedDate": "2024",
+  "readingTimeMinutes": 45,
+  "featured": true
+}

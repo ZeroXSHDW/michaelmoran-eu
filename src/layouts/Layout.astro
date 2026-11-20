@@ -3,7 +3,7 @@ const { title, description } = Astro.props;
 const { 
   siteConfig, 
   contact,
-} = await import('../content.ts');
+} = (await import('../content.ts')).content;
 
 const fullTitle = title ? `${title}` : siteConfig.title;
 
@@ -19,8 +19,8 @@ const jsonLd = {
   "jobTitle": siteConfig.title,
   "url": siteConfig.url,
   "sameAs": [
-    contact.linkedin.url,
-    contact.keybase.url
+    contact.linkedIn,
+    contact.keybase,
   ],
   "description": siteConfig.description,
   "knowsAbout": [

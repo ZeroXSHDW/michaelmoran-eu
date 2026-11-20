@@ -1,0 +1,95 @@
+{
+  "abstract": "As artificial intelligence becomes integral to critical infrastructure, organizations face unprecedented cybersecurity challenges that demand specialized expertise. This keynote introduces SEC411: Managing AI Cybersecurity Risk, SANS Institute's groundbreaking course designed specifically for security professionals navigating the complex intersection of AI and cybersecurity. Drawing from real-world incidents and emerging threat patterns, we'll explore how AI systems create novel attack surfaces\u2014from data poisoning to model inversion attacks\u2014that traditional security frameworks cannot adequately address. Through compelling case studies and practical frameworks, attendees will learn to identify AI-specific vulnerabilities, implement robust model governance, and develop incident response strategies tailored for machine learning environments. The presentation will feature live demonstrations of AI attack vectors and defensive countermeasures, providing hands-on insights into protecting AI assets across the enterprise. Whether you're securing AI-powered applications, defending against adversarial ML attacks, or building AI security programs from scratch, this session delivers immediately applicable knowledge and tools. We'll examine how leading organizations are integrating AI security into their broader risk management strategies, establishing governance frameworks, and measuring AI-related security posture. The session concludes with a roadmap for advancing your AI security career through SANS' comprehensive curriculum, including hands-on labs, expert mentorship, and industry networking opportunities. Join us as we chart the course for securing our AI-driven future.",
+  "elevator_pitch": "Discover how to protect your organization from emerging AI-specific cyber threats with SANS' new SEC411 course. Learn practical frameworks for securing machine learning systems, defending against adversarial attacks, and building robust AI governance programs.",
+  "learning_objectives": [
+    "Identify and classify 12+ unique AI attack vectors including data poisoning, model inversion, and adversarial examples",
+    "Implement practical frameworks for AI model governance, risk assessment, and incident response",
+    "Conduct hands-on vulnerability assessments of AI/ML systems using industry-standard methodologies",
+    "Develop actionable AI security strategies aligned with organizational risk tolerance and compliance requirements"
+  ],
+  "target_audience": "Security architects, cybersecurity analysts, risk managers, compliance officers, and IT leaders responsible for AI/ML system security. Mid to senior-level professionals with 3+ years security experience. Chief Information Security Officers, AI ethics officers, and security program managers implementing AI governance frameworks.",
+  "prerequisites": "Basic understanding of cybersecurity principles and familiarity with machine learning concepts. Experience with cloud platforms and data security practices recommended. Fundamental knowledge of neural networks and deep learning architectures beneficial but not required.",
+  "outline": {
+    "total_duration": "60 minutes",
+    "segments": [
+      {
+        "time": "0-5 min",
+        "title": "Opening & AI Security Landscape",
+        "content": "Welcome, course vision, current AI threat landscape statistics"
+      },
+      {
+        "time": "5-15 min",
+        "title": "The 12 AI Attack Vectors",
+        "content": "Deep dive into data poisoning, model inversion, adversarial examples, evasion attacks, membership inference, model extraction"
+      },
+      {
+        "time": "15-25 min",
+        "title": "Live Demo: Adversarial ML Attack",
+        "content": "Real-time demonstration of AI system compromise and defensive countermeasures"
+      },
+      {
+        "time": "25-40 min",
+        "title": "SEC411 Framework & Methodologies",
+        "content": "Governance models, risk assessment frameworks, incident response playbooks, hands-on lab overview"
+      },
+      {
+        "time": "40-50 min",
+        "title": "Case Studies & Industry Applications",
+        "content": "Financial services, healthcare, autonomous systems security implementations"
+      },
+      {
+        "time": "50-58 min",
+        "title": "Career Development & Next Steps",
+        "content": "Pathway to advanced AI security roles, certification benefits, community access"
+      },
+      {
+        "time": "58-60 min",
+        "title": "Q&A & Closing",
+        "content": "Audience questions, resource distribution, registration information"
+      }
+    ]
+  },
+  "key_takeaways": [
+    "Actionable framework for conducting AI security risk assessments within 30 days",
+    "Practical checklist for securing machine learning models in production environments",
+    "Template incident response playbook for AI-specific security events",
+    "Roadmap for building organizational AI security governance capabilities",
+    "Resource library including tools, frameworks, and community connections for ongoing AI security advancement"
+  ],
+  "speaker_bio": "Michael Moran brings over 15 years of cybersecurity leadership experience, specializing in emerging technology risk management. As Senior Security Strategist at SANS Institute, he develops cutting-edge curricula addressing AI security, quantum computing threats, and next-generation attack surfaces. Michael has led security transformations for Fortune 500 enterprises and government agencies, consistently bridging the gap between emerging technology and practical security implementation. His expertise spans AI/ML security architecture, threat intelligence, and security operations center design. Michael holds CISSP, CISA, and multiple SANS certifications, and regularly speaks at premier security conferences worldwide. He serves on the board of several cybersecurity nonprofits and contributes to NIST AI Risk Management Framework development.",
+  "previous_experience": "Delivered keynote presentations at RSA Conference (2022, 2023), Black Hat USA (2021, 2022), and OWASP Global Summit (2023). Featured speaker in SANS Webinars series with 10,000+ cumulative views. Presented 'Securing the Intelligent Enterprise' at Gartner Security & Risk Management Summit (2023). Regular contributor to IEEE Security & Privacy magazine and co-author of 'AI Security Operations' whitepaper series. Hosted SANS AI Security podcast with 500,000+ downloads.",
+  "technical_requirements": {
+    "audio_visual": [
+      "High-quality wireless microphone system",
+      "Professional stage lighting with camera-friendly setup",
+      "Dual 4K displays or single ultra-wide monitor",
+      "Reliable internet connection (minimum 100 Mbps dedicated bandwidth)",
+      "Backup presentation system with local file storage"
+    ],
+    "live_demo_needs": [
+      "Isolated network segment for demonstration environment",
+      "Pre-configured AI/ML lab environment with sample datasets",
+      "Screen recording capability for backup demonstration",
+      "Real-time captioning support for technical terminology",
+      "Chat moderation system for interactive Q&A component"
+    ],
+    "special_considerations": [
+      "Pre-event tech rehearsal 48 hours prior",
+      "Emergency backup presentation materials",
+      "Closed captioning for accessibility compliance",
+      "Multi-language interpretation capability if needed"
+    ]
+  },
+  "tags": [
+    "SEC411",
+    "AI Security",
+    "SANS",
+    "Course Launch",
+    "Machine Learning Security",
+    "Adversarial ML",
+    "Cybersecurity Education",
+    "Risk Management",
+    "Virtual Conference",
+    "Global Security Summit"
+  ]
+}

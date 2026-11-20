@@ -1,169 +1,236 @@
 ---
-  import Layout from '../layouts/Layout.astro';
-  import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
 
-  import {
-    siteConfig,
-    hero,
-    profile,
-    capabilities,
-    engagements,
-    credentials,
-    contact,
-    footer,
-    cv,
-  } from '../content';
-  ---
+import content from '../content';
+const { siteConfig, hero, profile, capabilities, engagements, credentials, contact } = content;
+---
 
-  <Layout title={"CV — " + hero.name} description={siteConfig.description}>
-    <!-- CV Section -->
-    <section id="cv" class="cv-section">
-      <div class="container">
-        <header class="cv-header">
-          <h1 class="cv-name">{hero.name}</h1>
-          <p class="cv-title accent">{hero.title}</p>
-          <p class="cv-location">Dublin, Ireland • EU Citizen</p>
-        </header>
+<Layout title={"CV — " + hero.name} description={siteConfig.description}>
+  <!-- CV Section -->
+  <section id="cv" class="cv-section">
+    <div class="container">
+      <header class="cv-header">
+        <h1 class="cv-name">{hero.name}</h1>
+        <p class="cv-title accent">{hero.title}</p>
+        <p class="cv-location">{profile.location}</p>
+      </header>
 
-        <div class="cv-content">
-          <p class="cv-download">
-            <a href={cv.url} download class="download-link">
-              {cv.title}
-            </a>
-          </p>
+      <div class="cv-content">
+        <p class="cv-download">
+          <a href="https://www.michaelmoran.eu/cv/michael-moran-cv.pdf" download class="download-link">
+            Download PDF
+          </a>
+        </p>
 
-          <!-- Professional Summary -->
-          <section class="cv-section-block">
-            <h2 class="cv-section-title">Professional Summary</h2>
-            <p>{profile.paragraphs[0]}</p>
-          </section>
+        <!-- Professional Summary -->
+        <section class="cv-section-block">
+          <h2 class="cv-section-title">Professional Summary</h2>
+          <p>{profile.body}</p>
+        </section>
 
-          <!-- Core Competencies -->
-          <section class="cv-section-block">
-            <h2 class="cv-section-title">Core Competencies</h2>
-            <ul class="cv-competencies">
-              {capabilities.items.map((item) => (
-                <li class="cv-competency">{item.title}</li>
-              ))}
-            </ul>
-          </section>
+        <!-- Core Competencies -->
+        <section class="cv-section-block">
+          <h2 class="cv-section-title">Core Competencies</h2>
+          <ul class="cv-competencies">
+            {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+            {capabilities.map((item) => (
+              <li class="cv-competency">{item.title}: {item.description}</li>
+            ))}
+            {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+          </ul>
+        </section>
 
-          <!-- Professional Experience -->
-          <section class="cv-section-block">
-            <h2 class="cv-section-title">Professional Experience</h2>
-            <div class="cv-experience">
-              {engagements.items.map((item) => (
-                <div class="cv-experience-item">
-                  <div class="cv-experience-header">
-                    <span class="cv-experience-year">{item.year}</span>
-                    <h3 class="cv-experience-role">{item.role}</h3>
-                  </div>
-                  <p class="cv-experience-sector">{item.sector}</p>
-                  <p class="cv-experience-outcome">{item.outcome}</p>
+        <!-- Professional Experience -->
+        <section class="cv-section-block">
+          <h2 class="cv-section-title">Professional Experience</h2>
+          <div class="cv-experience">
+            {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+            {engagements.map((item) => (
+              <div class="cv-experience-item">
+                <div class="cv-experience-header">
+                  <span class="cv-experience-period">{item.period}</span>
+                  <h3 class="cv-experience-role">{item.title}</h3>
                 </div>
-              ))}
-            </div>
-          </section>
+                <p class="cv-experience-org">{item.organization}</p>
+                <p class="cv-experience-desc">{item.description}</p>
+                <ul class="cv-achievements">
+                  {item.achievements.map((ach) => (
+                    <li>{ach}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+          </div>
+        </section>
 
-          <!-- Certifications -->
-          <section class="cv-section-block">
-            <h2 class="cv-section-title">Certifications</h2>
-            <ul class="cv-certifications">
-              {credentials.items.map((cred) => (
-                <li class="cv-certification">
-                  <span class="cv-cert-name">{cred.name}</span>
-                  <span class="cv-cert-issuer">{cred.issuer} • {cred.year}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+        <!-- Certifications -->
+        <section class="cv-section-block">
+          <h2 class="cv-section-title">Certifications</h2>
+          <ul class="cv-certifications">
+            {/* eslint-disable @typescript-eslint/no-unsafe-return */}
+            {credentials.map((cred) => (
+              <li class="cv-certification">
+                <span class="cv-cert-name">{cred.name}</span>
+                <span class="cv-cert-issuer">{cred.issuer} • {cred.date}</span>
+              </li>
+            ))}
+            {/* eslint-enable @typescript-eslint/no-unsafe-return */}
+          </ul>
+        </section>
 
-          <!-- Contact -->
-          <section class="cv-section-block">
-            <h2 class="cv-section-title">Contact</h2>
-            <p>
-              <strong>Email:</strong>{' '}
-              <a href={`mailto:contact@${siteConfig.url.replace('https://', '')}`}>
-                contact@{siteConfig.url.replace('https://', '')}
-              </a>
-            </p>
-            <p class="cv-small">
-              <em>PDF available for print or archival purposes.</em>
-            </p>
-          </section>
-        </div>
+        <!-- Contact -->
+        <section class="cv-section-block">
+          <h2 class="cv-section-title">Contact</h2>
+          <ul class="cv-contact">
+            <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+            {contact.linkedIn && <li><a href={contact.linkedIn} target="_blank" rel="noopener">LinkedIn</a></li>}
+            {contact.github && <li><a href={contact.github} target="_blank" rel="noopener">GitHub</a></li>}
+            {contact.keybase && <li><a href={contact.keybase} target="_blank" rel="noopener">Keybase</a></li>}
+          </ul>
+        </section>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <Footer 
-      copyright={footer.copyright}
-      privacy={footer.privacy}
-      securityMark={footer.securityMark}
-    />
-  </Layout>
+  <Footer />
+</Layout>
 
-  <style>
+<style>
+  /* CV Section */
   .cv-section {
-    padding: var(--space-6) var(--space-2);
+    padding: var(--space-6) 0;
+  }
+
+  @media (max-width: 48em) {
+    .cv-section {
+      padding: var(--space-4) var(--space-1);
+    }
+  }
+
+  .container {
+    width: min(90%, 800px);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+
+  @media (max-width: 48em) {
+    .container {
+      width: min(95%, 800px);
+      padding: 0 var(--space-2);
+    }
   }
 
   .cv-header {
     text-align: center;
-    margin-bottom: var(--space-5);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 48em) {
+    .cv-header {
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+    }
   }
 
   .cv-name {
     font-family: 'Fraunces', serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.1;
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
+    font-weight: 700;
     margin: 0 0 var(--space-2) 0;
     color: var(--color-text);
   }
 
   .cv-title {
-    font-size: 1.25rem;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: clamp(1rem, 2.2vw, 1.125rem);
     font-weight: 500;
-    opacity: 0.8;
-    margin-bottom: var(--space-2);
+    margin: 0 0 var(--space-1) 0;
+    color: var(--color-accent);
   }
 
   .cv-location {
-    font-size: 1rem;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
     color: var(--color-meta);
+    margin: 0;
   }
 
   .cv-download {
     text-align: center;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  @media (max-width: 48em) {
+    .cv-download {
+      margin-bottom: var(--space-4);
+    }
   }
 
   .download-link {
-    display: inline-block;
-    padding: var(--space-2) var(--space-4);
-    background-color: var(--color-accent);
-    color: var(--color-white);
-    text-decoration: none;
-    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-weight: 600;
-    transition: opacity var(--duration-fast) ease;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
+    transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
   }
 
   .download-link:hover,
   .download-link:focus {
-    opacity: 0.9;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .cv-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 48em) {
+    .cv-content {
+      gap: var(--space-4);
+    }
   }
 
   .cv-section-block {
-    margin-bottom: var(--space-5);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-4);
+  }
+
+  @media (max-width: 48em) {
+    .cv-section-block {
+      padding: var(--space-3);
+    }
   }
 
   .cv-section-title {
-    font-family: 'Fraunces', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
     margin: 0 0 var(--space-3) 0;
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cv-section-block > p {
+    margin: 0;
+    line-height: 1.7;
     color: var(--color-text);
   }
 
@@ -171,50 +238,15 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: var(--space-2);
   }
 
   .cv-competency {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: var(--space-2);
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.9rem;
-    color: var(--color-meta);
-  }
-
-  .cv-certifications {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .cv-certification {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    padding: var(--space-2) 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .cv-certification:last-child {
-    border-bottom: none;
-  }
-
-  .cv-cert-name {
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
     color: var(--color-text);
-  }
-
-  .cv-cert-issuer {
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.85rem;
-    color: var(--color-meta);
   }
 
   .cv-experience {
@@ -223,63 +255,158 @@
     gap: var(--space-4);
   }
 
+  @media (max-width: 48em) {
+    .cv-experience {
+      gap: var(--space-3);
+    }
+  }
+
   .cv-experience-item {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
     padding: var(--space-3);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+  }
+
+  @media (max-width: 48em) {
+    .cv-experience-item {
+      padding: var(--space-2);
+    }
   }
 
   .cv-experience-header {
     display: flex;
-    align-items: baseline;
-    gap: var(--space-3);
-    margin-bottom: var(--space-1);
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+    flex-wrap: wrap;
   }
 
-  .cv-experience-year {
+  .cv-experience-period {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.85rem;
-    background-color: var(--color-accent);
-    color: var(--color-white);
-    padding: 0.25rem var(--space-2);
-    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-meta);
+    white-space: nowrap;
   }
 
   .cv-experience-role {
-    font-size: 1.1rem;
+    font-family: 'Fraunces', serif;
+    font-size: 1.125rem;
     font-weight: 600;
     margin: 0;
+    color: var(--color-text);
   }
 
-  .cv-experience-sector {
-    font-size: 0.95rem;
+  .cv-experience-org {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.875rem;
+    font-weight: 500;
     color: var(--color-meta);
-    margin: var(--space-1) 0;
+    margin: 0 0 var(--space-2) 0;
   }
 
-  .cv-experience-outcome {
+  .cv-experience-desc {
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .cv-achievements {
+    list-style: none;
+    padding: 0;
     margin: 0;
-    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
   }
 
-  .cv-note {
-    color: var(--color-meta);
-    font-style: italic;
+  .cv-achievements li {
+    position: relative;
+    padding-left: var(--space-4);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text);
   }
 
-  .cv-small {
-    font-size: 0.85rem;
-    color: var(--color-meta);
+  .cv-achievements li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
   }
 
-  @media (min-width: 48em) {
-    .cv-name {
-      font-size: 3rem;
+  @media (max-width: 30em) {
+    .cv-achievements li {
+      padding-left: var(--space-2);
+      font-size: 0.8125rem;
     }
-   
-    .cv-section-title {
-      font-size: 1.75rem;
+  }
+
+  .cv-certifications {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .cv-certification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+  }
+
+  @media (max-width: 48em) {
+    .cv-certification {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
     }
   }
-  </style>
+
+  .cv-cert-name {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .cv-cert-issuer {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.75rem;
+    color: var(--color-meta);
+  }
+
+  .cv-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  @media (max-width: 48em) {
+    .cv-contact {
+      gap: var(--space-1);
+    }
+  }
+
+  .cv-contact a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.875rem;
+  }
+
+  .cv-contact a:hover,
+  .cv-contact a:focus {
+    text-decoration: underline;
+  }
+</style>
