@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-11-20
+
+### Added
+- `public/.well-known/security.txt` for security contact information
+- Enhanced security audit script to properly handle JSON-LD scripts (non-executable)
+
+### Changed
+- Updated CSP header in `_headers` with multiple SHA256 hashes for inline scripts
+- Layout component cleaned up - removed redundant JSON-LD import
+- Improved CSP compliance for scroll reveal script
+
+### Fixed
+- Security audit now properly distinguishes between executable and non-executable scripts
+- Removed duplicate JSON-LD rendering (StructuredData now sole source)
+
 ## [1.4.0] - 2026-11-20
 
 ### Added
