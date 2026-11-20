@@ -11,7 +11,7 @@ const rawContent = {
     linkedInUrl: "https://linkedin.com/in/michaelmoran",
     githubUrl: "https://github.com/ZeroXSHDW",
     keybaseUrl: "https://keybase.io/zerodevllc",
-    pgpFingerprint: "TODO: ADD_FINGERPRINT",
+    pgpFingerprint: "Add your PGP fingerprint here (e.g., ABCD 1234 5678 90EF 1234  5678 90EF 1234 5678 90AB)",
   },
   hero: {
     name: "Michael Moran",
@@ -285,7 +285,7 @@ const rawContent = {
   ],
   contact: {
     email: "michael@michaelmoran.eu",
-    pgpFingerprint: "TODO: ADD_FINGERPRINT",
+    pgpFingerprint: "Add your PGP fingerprint here (e.g., ABCD 1234 5678 90EF 1234  5678 90EF 1234 5678 90AB)",
     linkedIn: "https://linkedin.com/in/michaelmoran",
     keybase: "https://keybase.io/zerodevllc",
     github: "https://github.com/ZeroXSHDW",

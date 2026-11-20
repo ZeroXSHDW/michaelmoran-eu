@@ -1,5 +1,4 @@
-import { readFileSync, readdirSync, statSync } from 'fs';
-import { join } from 'path';
+import { readFileSync } from 'fs';
 
 const checks = [
   { name: 'CSP in _headers', test: () => readFileSync('_headers', 'utf-8').includes('Content-Security-Policy') },

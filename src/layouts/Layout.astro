@@ -4,12 +4,12 @@ const {
   siteConfig, 
   contact,
 } = (await import('../content.ts')).content;
+import { randomBytes } from 'crypto';
 
 const fullTitle = title ? `${title}` : siteConfig.title;
 
 // Generate a CSP nonce for inline script security
-const crypto = require('crypto');
-const scriptNonce = crypto.randomBytes(16).toString('base64');
+const scriptNonce = randomBytes(16).toString('base64');
 
 // Build JSON-LD schema as string for proper escaping
 const jsonLd = {
@@ -20,6 +20,7 @@ const jsonLd = {
   "url": siteConfig.url,
   "sameAs": [
     contact.linkedIn,
+    contact.github,
     contact.keybase,
   ],
   "description": siteConfig.description,

@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-11-20
+
+### Added
+- Enhanced ContactForm component with full contact sidebar layout
+- Keybase.io account URL (`https://keybase.io/zerodevllc`) added to JSON-LD schema
+- Contact information sidebar showing email, LinkedIn, Keybase, GitHub, response time
+- PGP fingerprint placeholder with clear instruction format
+
+### Changed
+- Form endpoint upgraded from placeholder to `https://formspree.io/f/xgaklegg`
+- Enhanced ContactForm component with contact info sidebar and improved styling
+- Fixed lint warnings in `scripts/audit-security.mjs` and `scripts/generate-sitemap.mjs`
+- Updated sitemap URL to use canonical `michaelmoran.eu` domain
+
+### Fixed
+- ContactForm now properly displays form action from content.ts
+- Unused imports removed from build scripts
+- CSP nonce security implemented for inline scroll reveal script
+
 ## [1.3.0] - 2026-11-20
 
 ### Added

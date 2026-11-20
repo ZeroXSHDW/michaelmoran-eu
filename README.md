@@ -243,19 +243,10 @@ Owner to complete:
 - [x] Cloudflare nameservers configured
 - [x] Custom domain added in Cloudflare Pages
 - [x] LinkedIn URL placeholder updated in src/content.ts
-- [x] Keybase.io URL added to contact section
-- [ ] PGP fingerprint added to content
-- [ ] CV PDF uploaded to public/cv/
-
----
-
-## Features
-
-- **Static Generation**: Zero client-side framework, maximum performance
-- **GDPR Compliant**: No cookies, no tracking, self-hosted assets
-- **Security Hardened**: CSP, HSTS, X-Frame-Options, Permissions-Policy
-- **Responsive Design**: Mobile-first, WCAG 2.2 AA compliant
-- **Scroll Animations**: CSS-based reveal animations (respects motion preference)
+- [x] Keybase.io URL added to contact section, JSON-LD schema, and footer
+- [x] Form endpoint updated to live Formspree URL
+- [ ] PGP fingerprint added to content (placeholder format added)
+- [x] CV PDF auto-generated during build
 
 ---
 
