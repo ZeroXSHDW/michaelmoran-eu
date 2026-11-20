@@ -1,13 +1,13 @@
 {
   "name": "michaelmoran-eu",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Personal portfolio website for Michael Moran, Cyber Security Professional",
   "author": "Michael Moran",
   "license": "ISC",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run generate:assets && astro build",
+    "build": "astro build && npm run generate:assets",
     "preview": "astro preview",
     "format": "prettier --write .",
     "lint": "echo 'No eslint rules configured'",

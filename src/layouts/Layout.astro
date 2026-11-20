@@ -2,12 +2,8 @@
 const { title, description } = Astro.props;
 const { 
   siteConfig, 
-  ogImage,
   contact,
-} = await import('../content');
-
-// Generate nonce for CSP
-const nonce = Astro.props.nonce || 'static-nonce';
+} = await import('../content.ts');
 
 const fullTitle = title ? `${title}` : siteConfig.title;
 
@@ -19,7 +15,7 @@ const jsonLd = {
   "jobTitle": siteConfig.title,
   "url": siteConfig.url,
   "sameAs": [
-    contact.linkedin.url // TODO(owner): Replace with actual LinkedIn URL
+    contact.linkedin.url
   ],
   "description": siteConfig.description,
   "knowsAbout": [

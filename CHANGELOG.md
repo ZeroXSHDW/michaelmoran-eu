@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.0] - 2026-11-19
+## [1.2.0] - 2026-11-20
 
 ### Added
 - Self-hosted font files (Fraunces, Inter, JetBrains Mono) in WOFF2 format
@@ -22,13 +22,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated copyright year to 2026
 - Fixed JSON-LD rendering using Astro's `set:html` directive (removed fix-jsonld.js workaround)
 - Updated CSP header with correct script hash for scroll reveal functionality
-- Improved build process with asset generation as pre-build step
+- Improved build process with asset generation after build step
+- Improved CSS organization and consistency
 
 ### Fixed
 - Missing font files in public/fonts/ (now properly downloaded and bundled)
 - Missing CV PDF in public/cv/ (now auto-generated)
 - RSS feed now includes all site content (hero, profile, capabilities, engagements, testimonials)
 - JSON-LD Person schema now renders correctly without post-processing
+- Section header layout fixed to prevent extra container wrapper
+- Credentials section now shows all 3 certifications without duplicates
 
 ## [1.1.0] - 2024-11-19
 

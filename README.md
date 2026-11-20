@@ -228,19 +228,33 @@ wrangler pages deployment list
 
 ---
 
+## Current Status
+
+**🚀 Site Live**: https://www.michaelmoran.eu (SSL Active)
+
+**🔄 DNS Configuration**: Complete (Cloudflare DNS)
+
 ## TODO Checklist
 
 Owner to complete:
-- [ ] GitHub repository created and pushed
-- [ ] CLOUDFLARE_API_TOKEN added to GitHub secrets
-- [ ] CLOUDFLARE_ACCOUNT_ID added to GitHub secrets
-- [ ] Njalla DNS records configured (CNAME + ALIAS)
-- [ ] Custom domain added in Cloudflare Pages
+- [x] GitHub repository created and pushed
+- [x] CLOUDFLARE_API_TOKEN added to GitHub secrets
+- [x] CLOUDFLARE_ACCOUNT_ID added to GitHub secrets
+- [x] Cloudflare nameservers configured
+- [x] Custom domain added in Cloudflare Pages
 - [ ] LinkedIn URL updated in src/content.ts
 - [ ] PGP fingerprint added to content
-- [ ] Certifications added to content
-- [ ] Testimonials populated with real quotes
 - [ ] CV PDF uploaded to public/cv/
+
+---
+
+## Features
+
+- **Static Generation**: Zero client-side framework, maximum performance
+- **GDPR Compliant**: No cookies, no tracking, self-hosted assets
+- **Security Hardened**: CSP, HSTS, X-Frame-Options, Permissions-Policy
+- **Responsive Design**: Mobile-first, WCAG 2.2 AA compliant
+- **Scroll Animations**: CSS-based reveal animations (respects motion preference)
 
 ---
 

@@ -15,6 +15,12 @@ export const siteConfig = {
 export const ogImage = {
   title: 'Michael Moran — Cyber Security Professional',
   description: siteConfig.description,
+  image: `${siteConfig.url}/images/og-image.svg`,
+};
+
+export const cv = {
+  url: '/cv/michael-moran-cv.pdf',
+  title: 'Download PDF Version',
 };
 
 // Hero section
@@ -136,10 +142,10 @@ export const credentials = {
       verificationUrl: 'https://www.giac.org/certification/pentester-gpen',
     },
     {
-      name: 'OSCP | Offensive Security Certified Professional',
-      issuer: 'Offensive Security',
-      year: '2019',
-      verificationUrl: 'https://www.offensive-security.com/',
+      name: 'CEH | Certified Ethical Hacker',
+      issuer: 'EC-Council',
+      year: '2017',
+      verificationUrl: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/',
     },
   ],
 };
@@ -181,9 +187,29 @@ export const contact = {
   },
   linkedin: {
     // TODO(owner): Replace with actual LinkedIn URL
-    // Current placeholder - add your real LinkedIn URL here
     url: 'https://linkedin.com/in/placeholder',
   },
+  keybase: {
+    url: 'https://keybase.io/michaelmoran',
+  },
+};
+
+// CV Section
+export const cv = {
+  title: 'Download PDF CV',
+  url: '/cv/michael-moran-cv.pdf',
+  note: 'Professional CV available as printable PDF',
+};
+
+// Education section (add if desired)
+export const education = {
+  items: [
+    // {
+    //   degree: 'Bachelor of Science in Computer Science',
+    //   institution: 'University Name',
+    //   year: '2015 - 2019',
+    // },
+  ],
 };
 
 // Footer
