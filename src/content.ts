@@ -198,7 +198,7 @@ export const contact = {
     url: 'https://linkedin.com/in/placeholder',
   },
   keybase: {
-    url: 'https://keybase.io/michaelmoran',
+    url: 'https://keybase.io/zerodevllc',
   },
 };
 
