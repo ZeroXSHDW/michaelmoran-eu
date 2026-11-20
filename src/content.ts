@@ -10,7 +10,7 @@ const rawContent = {
     twitterHandle: "@ZeroXSHDW",
     linkedInUrl: "https://linkedin.com/in/michaelmoran",
     githubUrl: "https://github.com/ZeroXSHDW",
-    keybaseUrl: "https://keybase.io/zeroxshdw",
+    keybaseUrl: "https://keybase.io/zerodevllc",
     pgpFingerprint: "TODO: ADD_FINGERPRINT",
   },
   hero: {
@@ -287,7 +287,7 @@ const rawContent = {
     email: "michael@michaelmoran.eu",
     pgpFingerprint: "TODO: ADD_FINGERPRINT",
     linkedIn: "https://linkedin.com/in/michaelmoran",
-    keybase: "https://keybase.io/zeroxshdw",
+    keybase: "https://keybase.io/zerodevllc",
     github: "https://github.com/ZeroXSHDW",
     responseTime: "Typically within 24 hours",
     formEndpoint: "https://formspree.io/f/your-form-id",
@@ -298,7 +298,7 @@ const rawContent = {
     socialLinks: [
       { label: "GitHub", href: "https://github.com/ZeroXSHDW", icon: "github" },
       { label: "LinkedIn", href: "https://linkedin.com/in/michaelmoran", icon: "linkedin" },
-      { label: "Keybase", href: "https://keybase.io/zeroxshdw", icon: "key" },
+      { label: "Keybase", href: "https://keybase.io/zerodevllc", icon: "key" },
       { label: "RSS", href: "https://www.michaelmoran.eu/rss.xml", icon: "rss" },
     ],
   },
