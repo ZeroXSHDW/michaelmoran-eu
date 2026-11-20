@@ -290,7 +290,7 @@ const rawContent = {
     keybase: "https://keybase.io/zerodevllc",
     github: "https://github.com/ZeroXSHDW",
     responseTime: "Typically within 24 hours",
-    formEndpoint: "https://formspree.io/f/your-form-id",
+    formEndpoint: "https://formspree.io/f/xgaklegg",
   },
   footer: {
     copyright: "© 2024 Michael Moran. All rights reserved.",
