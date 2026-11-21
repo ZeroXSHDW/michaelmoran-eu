@@ -1,10 +1,30 @@
 ---
-const { copyright, privacy, securityMark } = Astro.props;
+const { copyright, privacy, securityMark, socialLinks } = Astro.props;
 ---
 
 <footer class="footer">
   <p class="footer-copyright">{copyright}</p>
   <p class="footer-privacy">{privacy}</p>
+  
+  {socialLinks && socialLinks.length > 0 && (
+    <div class="social-links">
+      {socialLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class="social-link" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label={link.label}>
+          <span class="social-icon">{link.icon === 'github' ? '💻' : 
+            link.icon === 'linkedin' ? '👔' : 
+            link.icon === 'keybase' ? '🗝️' : 
+            link.icon === 'rss' ? '📻' : '🔗'}</span>
+          <span class="social-label">{link.label}</span>
+        </a>
+      ))}
+    </div>
+  )}
+  
   <div class="security-mark">{securityMark}</div>
 </footer>
 
@@ -13,7 +33,7 @@ const { copyright, privacy, securityMark } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-1);
+    gap: var(--space-3);
     font-size: var(--font-size-label);
     color: var(--color-meta);
     padding: var(--space-4) 0;
@@ -32,6 +52,28 @@ const { copyright, privacy, securityMark } = Astro.props;
       padding: var(--space-2) 0;
       gap: 0.25rem;
     }
+  }
+
+  .social-links {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color var(--duration-fast) ease;
+  }
+
+  .social-link:hover,
+  .social-link:focus {
+    color: var(--color-text);
   }
 
   .security-mark {
