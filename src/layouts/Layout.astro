@@ -4,6 +4,7 @@ const {
   siteConfig, 
 } = (await import('../content.ts')).content;
 import { randomBytes } from 'crypto';
+import DarkModeToggle from '../components/DarkModeToggle.astro';
 
 const fullTitle = title ? `${title}` : siteConfig.title;
 
@@ -65,6 +66,7 @@ const scriptNonce = randomBytes(16).toString('base64');
   </head>
   <body>
     <div id="page-content">
+      <DarkModeToggle scriptNonce={scriptNonce} />
       <slot />
     </div>
     

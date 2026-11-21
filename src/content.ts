@@ -1,4 +1,4 @@
-import { ContentSchema } from './content-schema';
+import { ContentSchema } from './content-schema.ts';
 
 const rawContent = {
   siteConfig: {

@@ -1,0 +1,59 @@
+---
+const { scriptNonce } = Astro.props;
+---
+
+<style>
+  .dark-toggle {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dark-toggle {
+      opacity: 1;
+    }
+  }
+</style>
+
+<button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+  🌙
+</button>
+
+<script nonce={scriptNonce}>
+  (function() {
+    const toggle = document.getElementById('dark-toggle');
+    if (!toggle) return;
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        toggle.textContent = '🌙';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+    });
+  })();
+</script>
